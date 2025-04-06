@@ -10,6 +10,9 @@ targets:
     skylight:
         target: typescript
         source: Skylight API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
