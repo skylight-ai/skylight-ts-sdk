@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.9"
+    "version": "1.0.10"
   },
   "paths": {
     "/windows/start": {
@@ -598,7 +598,9 @@
             "description": "Screenshot image of the instance",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ScreenshotResponse"
+                }
               }
             }
           },
@@ -1988,6 +1990,23 @@
         "title": "PackageInstallResponse",
         "example": {
           "status": "<string>"
+        }
+      },
+      "ScreenshotResponse": {
+        "properties": {
+          "image": {
+            "type": "string",
+            "title": "Image",
+            "description": "Base64-encoded JPEG image of the instance screenshot"
+          }
+        },
+        "type": "object",
+        "required": [
+          "image"
+        ],
+        "title": "ScreenshotResponse",
+        "example": {
+          "image": "base64_encoded_image_data"
         }
       },
       "ScrollRequest": {
