@@ -5,8 +5,11 @@ management:
   docVersion: 1.0.3
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.1
-  configChecksum: cd29669a86577358551e5c0fb1d94d5c
+  releaseVersion: 0.0.2
+  configChecksum: b43988c6fc28086b23c4be43b987e131
+  repoURL: https://github.com/skylight-ai/skylight-ts-sdk.git
+  installationURL: https://github.com/skylight-ai/skylight-ts-sdk
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
