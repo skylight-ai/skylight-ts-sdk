@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactMove(
   client: SkylightCore,
-  request: operations.MoveRequest,
+  instanceId: string,
+  mouseMoveRequest: components.MouseMoveRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +55,16 @@ export function interactMove(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    mouseMoveRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.MoveRequest,
+  instanceId: string,
+  mouseMoveRequest: components.MouseMoveRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +84,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.MoveRequest = {
+    instanceId: instanceId,
+    mouseMoveRequest: mouseMoveRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.MoveRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

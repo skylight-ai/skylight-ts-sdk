@@ -33,12 +33,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async click(
-    request: operations.ClickRequest,
+    instanceId: string,
+    clickRequest: components.ClickRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactClick(
       this,
-      request,
+      instanceId,
+      clickRequest,
       options,
     ));
   }
@@ -55,12 +57,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async drag(
-    request: operations.DragRequest,
+    instanceId: string,
+    dragRequest: components.DragRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactDrag(
       this,
-      request,
+      instanceId,
+      dragRequest,
       options,
     ));
   }
@@ -74,12 +78,12 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async screenshot(
-    request: operations.ScreenshotRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(interactScreenshot(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
@@ -93,12 +97,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async move(
-    request: operations.MoveRequest,
+    instanceId: string,
+    mouseMoveRequest: components.MouseMoveRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactMove(
       this,
-      request,
+      instanceId,
+      mouseMoveRequest,
       options,
     ));
   }
@@ -112,12 +118,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async keypress(
-    request: operations.KeypressRequest,
+    instanceId: string,
+    keyRequest: components.KeyRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactKeypress(
       this,
-      request,
+      instanceId,
+      keyRequest,
       options,
     ));
   }
@@ -131,12 +139,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async type(
-    request: operations.TypeRequest,
+    instanceId: string,
+    typeRequest: components.TypeRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactType(
       this,
-      request,
+      instanceId,
+      typeRequest,
       options,
     ));
   }
@@ -150,12 +160,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async scroll(
-    request: operations.ScrollRequest,
+    instanceId: string,
+    scrollRequest: components.ScrollRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(interactScroll(
       this,
-      request,
+      instanceId,
+      scrollRequest,
       options,
     ));
   }
@@ -171,12 +183,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async getFile(
-    request: operations.GetFileRequest,
+    instanceId: string,
+    requestBody: { [k: string]: string },
     options?: RequestOptions,
   ): Promise<operations.GetFileResponse200GetFile> {
     return unwrapAsync(interactGetFile(
       this,
-      request,
+      instanceId,
+      requestBody,
       options,
     ));
   }
@@ -190,12 +204,14 @@ export class Interact extends ClientSDK {
    * Requires API key authentication.
    */
   async install(
-    request: operations.InstallRequest,
+    instanceId: string,
+    packageInstallRequest: components.PackageInstallRequest,
     options?: RequestOptions,
   ): Promise<components.PackageInstallResponse> {
     return unwrapAsync(interactInstall(
       this,
-      request,
+      instanceId,
+      packageInstallRequest,
       options,
     ));
   }

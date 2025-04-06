@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactType(
   client: SkylightCore,
-  request: operations.TypeRequest,
+  instanceId: string,
+  typeRequest: components.TypeRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +55,16 @@ export function interactType(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    typeRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.TypeRequest,
+  instanceId: string,
+  typeRequest: components.TypeRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +84,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.TypeRequest = {
+    instanceId: instanceId,
+    typeRequest: typeRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.TypeRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

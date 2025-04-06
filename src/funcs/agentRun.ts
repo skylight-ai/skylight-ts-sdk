@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function agentRun(
   client: SkylightCore,
-  request: operations.RunRequest,
+  instanceId: string,
+  claudeRequest: components.ClaudeRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -53,14 +54,16 @@ export function agentRun(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    claudeRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.RunRequest,
+  instanceId: string,
+  claudeRequest: components.ClaudeRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -79,8 +82,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.RunRequest = {
+    instanceId: instanceId,
+    claudeRequest: claudeRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.RunRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

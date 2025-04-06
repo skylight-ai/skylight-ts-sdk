@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactScroll(
   client: SkylightCore,
-  request: operations.ScrollRequest,
+  instanceId: string,
+  scrollRequest: components.ScrollRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +55,16 @@ export function interactScroll(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    scrollRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.ScrollRequest,
+  instanceId: string,
+  scrollRequest: components.ScrollRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +84,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.ScrollRequest = {
+    instanceId: instanceId,
+    scrollRequest: scrollRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.ScrollRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -8,73 +8,73 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.run({\n    instanceId: \"<id>\",\n    claudeRequest: {\n      query: \"Search for something on the VM\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.run(\"<id>\", {\n    query: \"Search for something on the VM\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/agent/status/{agent_id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.status({\n    agentId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.status(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/agent/stop/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.stop({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.stop(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/click/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.click({\n    instanceId: \"<id>\",\n    clickRequest: {\n      x: 100,\n      y: 200,\n      interval: 0,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.click(\"<id>\", {\n    x: 100,\n    y: 200,\n    interval: 0,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/drag/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.drag({\n    instanceId: \"<id>\",\n    dragRequest: {\n      path: [\n        {\n          \"x\": 100,\n          \"y\": 200,\n        },\n        {\n          \"x\": 200,\n          \"y\": 300,\n        },\n        {\n          \"x\": 300,\n          \"y\": 400,\n        },\n      ],\n      step: 5,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.drag(\"<id>\", {\n    path: [\n      {\n        \"x\": 100,\n        \"y\": 200,\n      },\n      {\n        \"x\": 200,\n        \"y\": 300,\n      },\n      {\n        \"x\": 300,\n        \"y\": 400,\n      },\n    ],\n    step: 5,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/file/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.getFile({\n    instanceId: \"<id>\",\n    requestBody: {\n      \"key\": \"<value>\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.getFile(\"<id>\", {\n    \"key\": \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/install/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.install({\n    instanceId: \"<id>\",\n    packageInstallRequest: {\n      packages: [\n        \"<value>\",\n      ],\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.install(\"<id>\", {\n    packages: [\n      \"<value>\",\n    ],\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/keypress/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.keypress({\n    instanceId: \"<id>\",\n    keyRequest: {\n      keys: [\n        \"super\",\n        \"shift\",\n        \"s\",\n      ],\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.keypress(\"<id>\", {\n    keys: [\n      \"super\",\n      \"shift\",\n      \"s\",\n    ],\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/move/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.move({\n    instanceId: \"<id>\",\n    mouseMoveRequest: {\n      x: 100,\n      y: 200,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.move(\"<id>\", {\n    x: 100,\n    y: 200,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/screenshot/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.screenshot({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.screenshot(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/scroll/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.scroll({\n    instanceId: \"<id>\",\n    scrollRequest: {\n      x: 100,\n      y: 200,\n      step: 20,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.scroll(\"<id>\", {\n    x: 100,\n    y: 200,\n    step: 20,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/type/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.type({\n    instanceId: \"<id>\",\n    typeRequest: {\n      text: \"Hello, world!\",\n      interval: 0.05,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.type(\"<id>\", {\n    text: \"Hello, world!\",\n    interval: 0.05,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/windows/instances"]["get"]
     update:
       "x-codeSamples":
@@ -86,13 +86,13 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.pause({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.pause(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/windows/resume/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.resume({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.resume(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/windows/start"]["post"]
     update:
       "x-codeSamples":
@@ -104,10 +104,10 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.state({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.state(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/windows/terminate/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.terminate({\n    instanceId: \"<id>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.windows.terminate(\"<id>\");\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
