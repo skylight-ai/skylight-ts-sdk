@@ -6,59 +6,19 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export type Instances = {};
+import {
+  InstanceStatusResponse,
+  InstanceStatusResponse$inboundSchema,
+  InstanceStatusResponse$Outbound,
+  InstanceStatusResponse$outboundSchema,
+} from "./instancestatusresponse.js";
 
 export type InstancesListResponse = {
   /**
-   * List of instance IDs and states associated with the API key
+   * List of instances associated with the API key
    */
-  instances: Array<Instances>;
+  instances: Array<InstanceStatusResponse>;
 };
-
-/** @internal */
-export const Instances$inboundSchema: z.ZodType<
-  Instances,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type Instances$Outbound = {};
-
-/** @internal */
-export const Instances$outboundSchema: z.ZodType<
-  Instances$Outbound,
-  z.ZodTypeDef,
-  Instances
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Instances$ {
-  /** @deprecated use `Instances$inboundSchema` instead. */
-  export const inboundSchema = Instances$inboundSchema;
-  /** @deprecated use `Instances$outboundSchema` instead. */
-  export const outboundSchema = Instances$outboundSchema;
-  /** @deprecated use `Instances$Outbound` instead. */
-  export type Outbound = Instances$Outbound;
-}
-
-export function instancesToJSON(instances: Instances): string {
-  return JSON.stringify(Instances$outboundSchema.parse(instances));
-}
-
-export function instancesFromJSON(
-  jsonString: string,
-): SafeParseResult<Instances, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Instances$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Instances' from JSON`,
-  );
-}
 
 /** @internal */
 export const InstancesListResponse$inboundSchema: z.ZodType<
@@ -66,12 +26,12 @@ export const InstancesListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  instances: z.array(z.lazy(() => Instances$inboundSchema)),
+  instances: z.array(InstanceStatusResponse$inboundSchema),
 });
 
 /** @internal */
 export type InstancesListResponse$Outbound = {
-  instances: Array<Instances$Outbound>;
+  instances: Array<InstanceStatusResponse$Outbound>;
 };
 
 /** @internal */
@@ -80,7 +40,7 @@ export const InstancesListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   InstancesListResponse
 > = z.object({
-  instances: z.array(z.lazy(() => Instances$outboundSchema)),
+  instances: z.array(InstanceStatusResponse$outboundSchema),
 });
 
 /**

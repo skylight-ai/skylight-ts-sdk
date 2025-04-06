@@ -42,7 +42,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Skylight",
-    version: "0.1.0",
+    version: "0.1.1",
   });
 
   const client = new SkylightCore({

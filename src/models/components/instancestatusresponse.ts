@@ -3,11 +3,13 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type InstanceStatusResponse = {
+  instanceId: string;
   /**
    * Current state of the instance
    */
@@ -16,6 +18,14 @@ export type InstanceStatusResponse = {
    * Current knowledge of the instance
    */
   knowledge: string;
+  /**
+   * URL to livestream the instance
+   */
+  livestreamUrl: string;
+  /**
+   * When the instance was assigned
+   */
+  assignedAt?: string | null | undefined;
 };
 
 /** @internal */
@@ -24,14 +34,26 @@ export const InstanceStatusResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  instance_id: z.string(),
   state: z.string(),
   knowledge: z.string(),
+  livestream_url: z.string(),
+  assigned_at: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "instance_id": "instanceId",
+    "livestream_url": "livestreamUrl",
+    "assigned_at": "assignedAt",
+  });
 });
 
 /** @internal */
 export type InstanceStatusResponse$Outbound = {
+  instance_id: string;
   state: string;
   knowledge: string;
+  livestream_url: string;
+  assigned_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,8 +62,17 @@ export const InstanceStatusResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   InstanceStatusResponse
 > = z.object({
+  instanceId: z.string(),
   state: z.string(),
   knowledge: z.string(),
+  livestreamUrl: z.string(),
+  assignedAt: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    instanceId: "instance_id",
+    livestreamUrl: "livestream_url",
+    assignedAt: "assigned_at",
+  });
 });
 
 /**
