@@ -1,0 +1,481 @@
+lockVersion: 2.0.0
+id: cb3cbe6b-d32d-446f-8806-a31ce0a2324c
+management:
+  docChecksum: f5062c872fde54e3aa3acb7a8fa2fd03
+  docVersion: 1.0.3
+  speakeasyVersion: 1.529.1
+  generationVersion: 2.566.5
+  releaseVersion: 0.0.1
+  configChecksum: cd29669a86577358551e5c0fb1d94d5c
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.21.5
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.13
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    mcpServer: 0.9.0
+    nullables: 0.1.1
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+    unions: 2.85.8
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/button.md
+  - docs/models/components/clauderequest.md
+  - docs/models/components/clickrequest.md
+  - docs/models/components/dragrequest.md
+  - docs/models/components/dragrequestbutton.md
+  - docs/models/components/instanceoperationresponse.md
+  - docs/models/components/instancerequest.md
+  - docs/models/components/instances.md
+  - docs/models/components/instanceslistresponse.md
+  - docs/models/components/instancestartresponse.md
+  - docs/models/components/instancestatusresponse.md
+  - docs/models/components/keyrequest.md
+  - docs/models/components/loc.md
+  - docs/models/components/messages.md
+  - docs/models/components/mousemoverequest.md
+  - docs/models/components/packageinstallrequest.md
+  - docs/models/components/packageinstallresponse.md
+  - docs/models/components/scrollrequest.md
+  - docs/models/components/security.md
+  - docs/models/components/standardresponse.md
+  - docs/models/components/typerequest.md
+  - docs/models/components/validationerror.md
+  - docs/models/errors/errorresponse.md
+  - docs/models/errors/forbiddenerrorresponse.md
+  - docs/models/errors/httpvalidationerror.md
+  - docs/models/errors/servererrorresponse.md
+  - docs/models/operations/clickrequest.md
+  - docs/models/operations/dragrequest.md
+  - docs/models/operations/getfilerequest.md
+  - docs/models/operations/getfileresponse200getfile.md
+  - docs/models/operations/installrequest.md
+  - docs/models/operations/keypressrequest.md
+  - docs/models/operations/moverequest.md
+  - docs/models/operations/pauserequest.md
+  - docs/models/operations/resumerequest.md
+  - docs/models/operations/runrequest.md
+  - docs/models/operations/screenshotrequest.md
+  - docs/models/operations/scrollrequest.md
+  - docs/models/operations/staterequest.md
+  - docs/models/operations/statusrequest.md
+  - docs/models/operations/stoprequest.md
+  - docs/models/operations/terminaterequest.md
+  - docs/models/operations/typerequest.md
+  - docs/sdks/agent/README.md
+  - docs/sdks/interact/README.md
+  - docs/sdks/skylight/README.md
+  - docs/sdks/windows/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/agentRun.ts
+  - src/funcs/agentStatus.ts
+  - src/funcs/agentStop.ts
+  - src/funcs/interactClick.ts
+  - src/funcs/interactDrag.ts
+  - src/funcs/interactGetFile.ts
+  - src/funcs/interactInstall.ts
+  - src/funcs/interactKeypress.ts
+  - src/funcs/interactMove.ts
+  - src/funcs/interactScreenshot.ts
+  - src/funcs/interactScroll.ts
+  - src/funcs/interactType.ts
+  - src/funcs/windowsInstances.ts
+  - src/funcs/windowsPause.ts
+  - src/funcs/windowsResume.ts
+  - src/funcs/windowsStart.ts
+  - src/funcs/windowsState.ts
+  - src/funcs/windowsTerminate.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/agentRun.ts
+  - src/mcp-server/tools/agentStatus.ts
+  - src/mcp-server/tools/agentStop.ts
+  - src/mcp-server/tools/interactClick.ts
+  - src/mcp-server/tools/interactDrag.ts
+  - src/mcp-server/tools/interactGetFile.ts
+  - src/mcp-server/tools/interactInstall.ts
+  - src/mcp-server/tools/interactKeypress.ts
+  - src/mcp-server/tools/interactMove.ts
+  - src/mcp-server/tools/interactScreenshot.ts
+  - src/mcp-server/tools/interactScroll.ts
+  - src/mcp-server/tools/interactType.ts
+  - src/mcp-server/tools/windowsInstances.ts
+  - src/mcp-server/tools/windowsPause.ts
+  - src/mcp-server/tools/windowsResume.ts
+  - src/mcp-server/tools/windowsStart.ts
+  - src/mcp-server/tools/windowsState.ts
+  - src/mcp-server/tools/windowsTerminate.ts
+  - src/models/components/clauderequest.ts
+  - src/models/components/clickrequest.ts
+  - src/models/components/dragrequest.ts
+  - src/models/components/index.ts
+  - src/models/components/instanceoperationresponse.ts
+  - src/models/components/instancerequest.ts
+  - src/models/components/instanceslistresponse.ts
+  - src/models/components/instancestartresponse.ts
+  - src/models/components/instancestatusresponse.ts
+  - src/models/components/keyrequest.ts
+  - src/models/components/mousemoverequest.ts
+  - src/models/components/packageinstallrequest.ts
+  - src/models/components/packageinstallresponse.ts
+  - src/models/components/scrollrequest.ts
+  - src/models/components/security.ts
+  - src/models/components/standardresponse.ts
+  - src/models/components/typerequest.ts
+  - src/models/components/validationerror.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/errorresponse.ts
+  - src/models/errors/forbiddenerrorresponse.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/index.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/servererrorresponse.ts
+  - src/models/operations/click.ts
+  - src/models/operations/drag.ts
+  - src/models/operations/getfile.ts
+  - src/models/operations/index.ts
+  - src/models/operations/install.ts
+  - src/models/operations/keypress.ts
+  - src/models/operations/move.ts
+  - src/models/operations/pause.ts
+  - src/models/operations/resume.ts
+  - src/models/operations/run.ts
+  - src/models/operations/screenshot.ts
+  - src/models/operations/scroll.ts
+  - src/models/operations/state.ts
+  - src/models/operations/status.ts
+  - src/models/operations/stop.ts
+  - src/models/operations/terminate.ts
+  - src/models/operations/type.ts
+  - src/sdk/agent.ts
+  - src/sdk/index.ts
+  - src/sdk/interact.ts
+  - src/sdk/sdk.ts
+  - src/sdk/windows.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  start:
+    speakeasy-default-start:
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"status": "success", "instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "aws_state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  pause:
+    speakeasy-default-pause:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  resume:
+    speakeasy-default-resume:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  state:
+    speakeasy-default-state:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  instances:
+    speakeasy-default-instances:
+      responses:
+        "200":
+          application/json: {"instances": [{}, {}]}
+        "403":
+          application/json: {"detail": "<string>"}
+        "500":
+          application/json: {"detail": "<string>"}
+  terminate:
+    speakeasy-default-terminate:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  install:
+    speakeasy-default-install:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"packages": ["<value>"]}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  click:
+    speakeasy-default-click:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1, "interval": 0}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  drag:
+    speakeasy-default-drag:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"path": [{"x": 100, "y": 200}, {"x": 200, "y": 300}, {"x": 300, "y": 400}], "button": "left", "step": 5}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  screenshot:
+    speakeasy-default-screenshot:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  move:
+    speakeasy-default-move:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  keypress:
+    speakeasy-default-keypress:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"keys": ["super", "shift", "s"]}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  type:
+    speakeasy-default-type:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"text": "Hello, world!", "interval": 0.05}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  scroll:
+    speakeasy-default-scroll:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": -100, "step": 20}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  get_file:
+    speakeasy-default-get-file:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"key": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  run:
+    speakeasy-default-run:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"query": "Search for something on the VM"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  stop:
+    speakeasy-default-stop:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  status:
+    speakeasy-default-status:
+      parameters:
+        path:
+          agent_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+examplesVersion: 1.0.1
+generatedTests: {}

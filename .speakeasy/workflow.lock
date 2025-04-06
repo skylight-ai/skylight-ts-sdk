@@ -1,0 +1,36 @@
+speakeasyVersion: 1.529.1
+sources:
+    Skylight API:
+        sourceNamespace: skylight-api
+        sourceRevisionDigest: sha256:c4d383dd193e6f22314a89d3c48a9f2a2023e001fbd78904a5f7833bbec6d51a
+        sourceBlobDigest: sha256:0b5b4576785628e78ee81eb3a65f277688aeacd11465bada7fd263ca2c8e7397
+        tags:
+            - latest
+            - 1.0.3
+targets:
+    skylight:
+        source: Skylight API
+        sourceNamespace: skylight-api
+        sourceRevisionDigest: sha256:c4d383dd193e6f22314a89d3c48a9f2a2023e001fbd78904a5f7833bbec6d51a
+        sourceBlobDigest: sha256:0b5b4576785628e78ee81eb3a65f277688aeacd11465bada7fd263ca2c8e7397
+        codeSamplesNamespace: skylight-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:84107d09b8c94e01780cc6f3e9ce66ff34e4eead43e0521e57827e3478be5218
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Skylight API:
+            inputs:
+                - location: openapi.json
+            registry:
+                location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
+    targets:
+        skylight:
+            target: typescript
+            source: Skylight API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
