@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.8"
+    "version": "1.0.9"
   },
   "paths": {
     "/windows/start": {
@@ -1790,6 +1790,10 @@
       },
       "InstanceStatusResponse": {
         "properties": {
+          "instance_id": {
+            "type": "string",
+            "title": "Instance Id"
+          },
           "state": {
             "type": "string",
             "title": "State",
@@ -1801,28 +1805,52 @@
             "title": "Knowledge",
             "description": "Current knowledge of the instance",
             "example": "unknown"
+          },
+          "livestream_url": {
+            "type": "string",
+            "title": "Livestream Url",
+            "description": "URL to livestream the instance",
+            "example": "launchskylight.com/embed/i-123456"
+          },
+          "assigned_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned At",
+            "description": "When the instance was assigned",
+            "example": "2023-01-01T12:00:00Z"
           }
         },
         "type": "object",
         "required": [
+          "instance_id",
           "state",
-          "knowledge"
+          "knowledge",
+          "livestream_url"
         ],
         "title": "InstanceStatusResponse",
         "example": {
-          "knowledge": "<string>",
-          "state": "<string>"
+          "assigned_at": "2023-01-01T12:00:00Z",
+          "instance_id": "i-123456",
+          "knowledge": "The user previously asked to perform ....",
+          "livestream_url": "https://launchskylight.com/embed/i-123456",
+          "state": "running"
         }
       },
       "InstancesListResponse": {
         "properties": {
           "instances": {
             "items": {
-              "type": "object"
+              "$ref": "#/components/schemas/InstanceStatusResponse"
             },
             "type": "array",
             "title": "Instances",
-            "description": "List of instance IDs and states associated with the API key"
+            "description": "List of instances associated with the API key"
           }
         },
         "type": "object",
@@ -1833,12 +1861,18 @@
         "example": {
           "instances": [
             {
-              "aws_state": "running",
-              "instance_id": "i-123456"
+              "assigned_at": "2023-01-01T12:00:00Z",
+              "instance_id": "i-123456",
+              "knowledge": "unknown",
+              "livestream_url": "launchskylight.com/embed/i-123456",
+              "state": "running"
             },
             {
-              "aws_state": "stopped",
-              "instance_id": "i-789012"
+              "assigned_at": "2023-01-02T12:00:00Z",
+              "instance_id": "i-789012",
+              "knowledge": "unknown",
+              "livestream_url": "launchskylight.com/embed/i-789012",
+              "state": "stopped"
             }
           ]
         }
