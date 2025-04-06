@@ -18,9 +18,13 @@ export type PackageInstallResponse = {
    */
   message: string;
   /**
-   * AWS state of the instance
+   * State of the instance (running, pending, hibernated, terminated)
    */
-  awsState: string;
+  state: string;
+  /**
+   * URL to livestream the instance
+   */
+  livestreamUrl: string;
   /**
    * Command ID for tracking installation progress
    */
@@ -35,11 +39,12 @@ export const PackageInstallResponse$inboundSchema: z.ZodType<
 > = z.object({
   status: z.string(),
   message: z.string(),
-  aws_state: z.string(),
+  state: z.string(),
+  livestream_url: z.string(),
   command_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    "aws_state": "awsState",
+    "livestream_url": "livestreamUrl",
     "command_id": "commandId",
   });
 });
@@ -48,7 +53,8 @@ export const PackageInstallResponse$inboundSchema: z.ZodType<
 export type PackageInstallResponse$Outbound = {
   status: string;
   message: string;
-  aws_state: string;
+  state: string;
+  livestream_url: string;
   command_id?: string | null | undefined;
 };
 
@@ -60,11 +66,12 @@ export const PackageInstallResponse$outboundSchema: z.ZodType<
 > = z.object({
   status: z.string(),
   message: z.string(),
-  awsState: z.string(),
+  state: z.string(),
+  livestreamUrl: z.string(),
   commandId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    awsState: "aws_state",
+    livestreamUrl: "livestream_url",
     commandId: "command_id",
   });
 });

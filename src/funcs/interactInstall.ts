@@ -26,7 +26,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Install Chocolatey Packages
+ * Install Applications
  *
  * @remarks
  * Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.

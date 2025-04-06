@@ -26,7 +26,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Pause Vm
+ * Pause Instance
  *
  * @remarks
  * Requires API key authentication.

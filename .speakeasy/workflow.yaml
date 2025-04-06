@@ -1,22 +1,22 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-   Skylight API:
-      inputs:
-         - location: openapi.json
-      registry:
-         location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
+    Skylight API:
+        inputs:
+            - location: openapi.json
+        registry:
+            location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
 targets:
-   skylight:
-      target: typescript
-      source: Skylight API
-      publish:
-         npm:
-            token: $npm_token
-      codeSamples:
-         output: code-samples.yaml
-         registry:
-            location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
-         labelOverride:
-            fixedValue: Typescript (SDK)
-         blocking: false
+    skylight:
+        target: typescript
+        source: Skylight API
+        publish:
+            npm:
+                token: $npm_token
+        codeSamples:
+            output: code-samples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false

@@ -12,7 +12,7 @@ const args = {
 
 export const tool$windowsPause: ToolDefinition<typeof args> = {
   name: "windows-pause",
-  description: `Pause Vm
+  description: `Pause Instance
 
 Requires API key authentication.`,
   args,

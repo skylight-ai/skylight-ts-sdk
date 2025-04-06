@@ -18,25 +18,6 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Interact extends ClientSDK {
   /**
-   * Install Chocolatey Packages
-   *
-   * @remarks
-   * Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.
-   *
-   * Requires API key authentication.
-   */
-  async install(
-    request: operations.InstallRequest,
-    options?: RequestOptions,
-  ): Promise<components.PackageInstallResponse> {
-    return unwrapAsync(interactInstall(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Click
    *
    * @remarks
@@ -194,6 +175,25 @@ export class Interact extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetFileResponse200GetFile> {
     return unwrapAsync(interactGetFile(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Install Applications
+   *
+   * @remarks
+   * Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.
+   *
+   * Requires API key authentication.
+   */
+  async install(
+    request: operations.InstallRequest,
+    options?: RequestOptions,
+  ): Promise<components.PackageInstallResponse> {
+    return unwrapAsync(interactInstall(
       this,
       request,
       options,

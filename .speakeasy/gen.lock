@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: cb3cbe6b-d32d-446f-8806-a31ce0a2324c
 management:
-  docChecksum: f5062c872fde54e3aa3acb7a8fa2fd03
-  docVersion: 1.0.3
+  docChecksum: e220c63147de4c63b7505d00135113ca
+  docVersion: 1.0.7
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.2
-  configChecksum: b43988c6fc28086b23c4be43b987e131
+  releaseVersion: 0.0.4
+  configChecksum: 96774e3e37e4c8d67caefaa3f47c33c2
   repoURL: https://github.com/skylight-ai/skylight-ts-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-ts-sdk
   published: true
@@ -39,11 +39,13 @@ generatedFiles:
   - RUNTIMES.md
   - USAGE.md
   - docs/lib/utils/retryconfig.md
+  - docs/models/components/agentstatusresponse.md
   - docs/models/components/button.md
   - docs/models/components/clauderequest.md
   - docs/models/components/clickrequest.md
   - docs/models/components/dragrequest.md
   - docs/models/components/dragrequestbutton.md
+  - docs/models/components/files.md
   - docs/models/components/instanceoperationresponse.md
   - docs/models/components/instancerequest.md
   - docs/models/components/instances.md
@@ -159,6 +161,7 @@ generatedFiles:
   - src/mcp-server/tools/windowsStart.ts
   - src/mcp-server/tools/windowsState.ts
   - src/mcp-server/tools/windowsTerminate.ts
+  - src/models/components/agentstatusresponse.ts
   - src/models/components/clauderequest.ts
   - src/models/components/clickrequest.ts
   - src/models/components/dragrequest.ts
@@ -224,7 +227,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"status": "success", "instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "aws_state": "running"}
+          application/json: {"instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "state": "running"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -238,7 +241,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -252,7 +255,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -266,7 +269,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"state": "running"}
+          application/json: {"state": "running", "knowledge": "unknown"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -289,7 +292,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -305,7 +308,7 @@ examples:
         application/json: {"packages": ["<value>"]}
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "aws_state": "running"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -473,7 +476,7 @@ examples:
           agent_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "<string>"}
+          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "step_count": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "steps": ["Step 1: Search for information", "Step 2: Download file"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
         "404":
           application/json: {"detail": "<string>"}
         "422":

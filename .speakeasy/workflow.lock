@@ -2,20 +2,19 @@ speakeasyVersion: 1.529.1
 sources:
     Skylight API:
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:21f41680f7f92a508fe74494c8ca4a1b9d29d6ee19a2b7101def6fb52c506581
-        sourceBlobDigest: sha256:0b5b4576785628e78ee81eb3a65f277688aeacd11465bada7fd263ca2c8e7397
+        sourceRevisionDigest: sha256:b4d543b66128628da368e897956c3130dda1c9973e3472e064becd679dd73e91
+        sourceBlobDigest: sha256:84ea6d4bdb808522f0bd26c68f62eb1ef6e7668ae0a980ad0abadd4579a412ff
         tags:
             - latest
-            - speakeasy-sdk-regen-1743959890
-            - 1.0.3
+            - 1.0.7
 targets:
     skylight:
         source: Skylight API
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:21f41680f7f92a508fe74494c8ca4a1b9d29d6ee19a2b7101def6fb52c506581
-        sourceBlobDigest: sha256:0b5b4576785628e78ee81eb3a65f277688aeacd11465bada7fd263ca2c8e7397
+        sourceRevisionDigest: sha256:b4d543b66128628da368e897956c3130dda1c9973e3472e064becd679dd73e91
+        sourceBlobDigest: sha256:84ea6d4bdb808522f0bd26c68f62eb1ef6e7668ae0a980ad0abadd4579a412ff
         codeSamplesNamespace: skylight-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:c3db23c31584206f5475204112e7938bca7a938ded400f69e8b992b97cf03b0b
+        codeSamplesRevisionDigest: sha256:045efb565bc47641583cf493c47d1e346c8ede637e4875c180fa3974e0fff492
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -33,6 +32,7 @@ workflow:
                 npm:
                     token: $npm_token
             codeSamples:
+                output: code-samples.yaml
                 registry:
                     location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
                 labelOverride:

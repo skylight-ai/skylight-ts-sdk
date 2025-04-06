@@ -7,7 +7,7 @@ import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$windowsInstances: ToolDefinition = {
   name: "windows-instances",
-  description: `Get Instances
+  description: `Get All Instances
 
 Requires API key authentication.`,
   tool: async (client, ctx) => {

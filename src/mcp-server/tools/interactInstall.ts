@@ -12,7 +12,7 @@ const args = {
 
 export const tool$interactInstall: ToolDefinition<typeof args> = {
   name: "interact-install",
-  description: `Install Chocolatey Packages
+  description: `Install Applications
 
 Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.
 

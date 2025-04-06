@@ -18,9 +18,13 @@ export type InstanceOperationResponse = {
    */
   message: string;
   /**
-   * AWS state of the instance
+   * State of the instance (running, pending, hibernated, terminated)
    */
-  awsState: string;
+  state: string;
+  /**
+   * URL to livestream the instance
+   */
+  livestreamUrl: string;
 };
 
 /** @internal */
@@ -31,10 +35,11 @@ export const InstanceOperationResponse$inboundSchema: z.ZodType<
 > = z.object({
   status: z.string(),
   message: z.string(),
-  aws_state: z.string(),
+  state: z.string(),
+  livestream_url: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    "aws_state": "awsState",
+    "livestream_url": "livestreamUrl",
   });
 });
 
@@ -42,7 +47,8 @@ export const InstanceOperationResponse$inboundSchema: z.ZodType<
 export type InstanceOperationResponse$Outbound = {
   status: string;
   message: string;
-  aws_state: string;
+  state: string;
+  livestream_url: string;
 };
 
 /** @internal */
@@ -53,10 +59,11 @@ export const InstanceOperationResponse$outboundSchema: z.ZodType<
 > = z.object({
   status: z.string(),
   message: z.string(),
-  awsState: z.string(),
+  state: z.string(),
+  livestreamUrl: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    awsState: "aws_state",
+    livestreamUrl: "livestream_url",
   });
 });
 

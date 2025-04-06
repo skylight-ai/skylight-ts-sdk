@@ -26,7 +26,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Agent Status Endpoint
+ * Get Agent State
  *
  * @remarks
  * Get the current status of an agent for a specific instance.
@@ -39,7 +39,7 @@ export function agentStatus(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.StandardResponse,
+    components.AgentStatusResponse,
     | errors.ErrorResponse
     | errors.HTTPValidationError
     | errors.ErrorResponse
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.StandardResponse,
+      components.AgentStatusResponse,
       | errors.ErrorResponse
       | errors.HTTPValidationError
       | errors.ErrorResponse
@@ -153,7 +153,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.StandardResponse,
+    components.AgentStatusResponse,
     | errors.ErrorResponse
     | errors.HTTPValidationError
     | errors.ErrorResponse
@@ -165,7 +165,7 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.StandardResponse$inboundSchema),
+    M.json(200, components.AgentStatusResponse$inboundSchema),
     M.jsonErr(404, errors.ErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.jsonErr(500, errors.ErrorResponse$inboundSchema),

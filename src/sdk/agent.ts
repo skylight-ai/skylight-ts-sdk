@@ -31,7 +31,7 @@ export class Agent extends ClientSDK {
   }
 
   /**
-   * Stop Agent Endpoint
+   * Stop Agent
    *
    * @remarks
    * Stop a running agent for a specific instance.
@@ -50,7 +50,7 @@ export class Agent extends ClientSDK {
   }
 
   /**
-   * Get Agent Status Endpoint
+   * Get Agent State
    *
    * @remarks
    * Get the current status of an agent for a specific instance.
@@ -60,7 +60,7 @@ export class Agent extends ClientSDK {
   async status(
     request: operations.StatusRequest,
     options?: RequestOptions,
-  ): Promise<components.StandardResponse> {
+  ): Promise<components.AgentStatusResponse> {
     return unwrapAsync(agentStatus(
       this,
       request,

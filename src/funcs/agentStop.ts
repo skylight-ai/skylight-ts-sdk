@@ -26,7 +26,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Stop Agent Endpoint
+ * Stop Agent
  *
  * @remarks
  * Stop a running agent for a specific instance.

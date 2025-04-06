@@ -12,7 +12,7 @@ const args = {
 
 export const tool$agentStatus: ToolDefinition<typeof args> = {
   name: "agent-status",
-  description: `Get Agent Status Endpoint
+  description: `Get Agent State
 
 Get the current status of an agent for a specific instance.
 

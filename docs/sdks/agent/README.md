@@ -6,8 +6,8 @@
 ### Available Operations
 
 * [run](#run) - Run Agent
-* [stop](#stop) - Stop Agent Endpoint
-* [status](#status) - Get Agent Status Endpoint
+* [stop](#stop) - Stop Agent
+* [status](#status) - Get Agent State
 
 ## run
 
@@ -246,7 +246,7 @@ run();
 
 ### Response
 
-**Promise\<[components.StandardResponse](../../models/components/standardresponse.md)\>**
+**Promise\<[components.AgentStatusResponse](../../models/components/agentstatusresponse.md)\>**
 
 ### Errors
 

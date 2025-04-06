@@ -15,10 +15,10 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Windows extends ClientSDK {
   /**
-   * Start Vm
+   * Start Instance
    *
    * @remarks
-   * Start a new Windows VM instance.
+   * Start a new Windows  instance.
    *
    * - timeout_minutes: Optional timeout in minutes (default: 60)
    *
@@ -36,7 +36,7 @@ export class Windows extends ClientSDK {
   }
 
   /**
-   * Pause Vm
+   * Pause Instance
    *
    * @remarks
    * Requires API key authentication.
@@ -53,7 +53,7 @@ export class Windows extends ClientSDK {
   }
 
   /**
-   * Resume Vm
+   * Resume Instance
    *
    * @remarks
    * Requires API key authentication.
@@ -70,7 +70,24 @@ export class Windows extends ClientSDK {
   }
 
   /**
-   * Get Vm Status
+   * Terminate Instance
+   *
+   * @remarks
+   * Requires API key authentication.
+   */
+  async terminate(
+    request: operations.TerminateRequest,
+    options?: RequestOptions,
+  ): Promise<components.InstanceOperationResponse> {
+    return unwrapAsync(windowsTerminate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Instance State
    *
    * @remarks
    * Requires API key authentication.
@@ -87,7 +104,7 @@ export class Windows extends ClientSDK {
   }
 
   /**
-   * Get Instances
+   * Get All Instances
    *
    * @remarks
    * Requires API key authentication.
@@ -97,23 +114,6 @@ export class Windows extends ClientSDK {
   ): Promise<components.InstancesListResponse> {
     return unwrapAsync(windowsInstances(
       this,
-      options,
-    ));
-  }
-
-  /**
-   * Terminate Vm
-   *
-   * @remarks
-   * Requires API key authentication.
-   */
-  async terminate(
-    request: operations.TerminateRequest,
-    options?: RequestOptions,
-  ): Promise<components.InstanceOperationResponse> {
-    return unwrapAsync(windowsTerminate(
-      this,
-      request,
       options,
     ));
   }

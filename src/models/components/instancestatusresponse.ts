@@ -12,6 +12,10 @@ export type InstanceStatusResponse = {
    * Current state of the instance
    */
   state: string;
+  /**
+   * Current knowledge of the instance
+   */
+  knowledge: string;
 };
 
 /** @internal */
@@ -21,11 +25,13 @@ export const InstanceStatusResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   state: z.string(),
+  knowledge: z.string(),
 });
 
 /** @internal */
 export type InstanceStatusResponse$Outbound = {
   state: string;
+  knowledge: string;
 };
 
 /** @internal */
@@ -35,6 +41,7 @@ export const InstanceStatusResponse$outboundSchema: z.ZodType<
   InstanceStatusResponse
 > = z.object({
   state: z.string(),
+  knowledge: z.string(),
 });
 
 /**

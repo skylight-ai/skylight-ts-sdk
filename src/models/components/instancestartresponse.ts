@@ -10,10 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type InstanceStartResponse = {
   /**
-   * Status of the instance start operation
-   */
-  status: string;
-  /**
    * Unique identifier of the created instance
    */
   instanceId: string;
@@ -26,9 +22,9 @@ export type InstanceStartResponse = {
    */
   livestreamUrl: string;
   /**
-   * AWS state of the instance
+   * State of the instance (running, pending, hibernated, terminated)
    */
-  awsState: string;
+  state: string;
 };
 
 /** @internal */
@@ -37,26 +33,23 @@ export const InstanceStartResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status: z.string(),
   instance_id: z.string(),
   message: z.string(),
   livestream_url: z.string(),
-  aws_state: z.string(),
+  state: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "instance_id": "instanceId",
     "livestream_url": "livestreamUrl",
-    "aws_state": "awsState",
   });
 });
 
 /** @internal */
 export type InstanceStartResponse$Outbound = {
-  status: string;
   instance_id: string;
   message: string;
   livestream_url: string;
-  aws_state: string;
+  state: string;
 };
 
 /** @internal */
@@ -65,16 +58,14 @@ export const InstanceStartResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   InstanceStartResponse
 > = z.object({
-  status: z.string(),
   instanceId: z.string(),
   message: z.string(),
   livestreamUrl: z.string(),
-  awsState: z.string(),
+  state: z.string(),
 }).transform((v) => {
   return remap$(v, {
     instanceId: "instance_id",
     livestreamUrl: "livestream_url",
-    awsState: "aws_state",
   });
 });
 

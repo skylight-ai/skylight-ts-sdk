@@ -12,7 +12,7 @@ const args = {
 
 export const tool$windowsResume: ToolDefinition<typeof args> = {
   name: "windows-resume",
-  description: `Resume Vm
+  description: `Resume Instance
 
 Requires API key authentication.`,
   args,

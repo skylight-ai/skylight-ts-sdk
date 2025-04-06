@@ -42,7 +42,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Skylight",
-    version: "0.0.2",
+    version: "0.0.4",
   });
 
   const client = new SkylightCore({
@@ -75,10 +75,9 @@ export function createMCPServer(deps: {
   tool(tool$windowsStart);
   tool(tool$windowsPause);
   tool(tool$windowsResume);
+  tool(tool$windowsTerminate);
   tool(tool$windowsState);
   tool(tool$windowsInstances);
-  tool(tool$windowsTerminate);
-  tool(tool$interactInstall);
   tool(tool$interactClick);
   tool(tool$interactDrag);
   tool(tool$interactScreenshot);
@@ -87,6 +86,7 @@ export function createMCPServer(deps: {
   tool(tool$interactType);
   tool(tool$interactScroll);
   tool(tool$interactGetFile);
+  tool(tool$interactInstall);
   tool(tool$agentRun);
   tool(tool$agentStop);
   tool(tool$agentStatus);

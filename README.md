@@ -22,7 +22,7 @@ Skylight API: Skylight API Documentation
 
         # Skylight API Documentation
         
-        This API allows you to interact with Windows VMs.
+        This API allows you to interact with Windows instances.
         
         ## Authentication
         
@@ -244,12 +244,11 @@ run();
 ### [agent](docs/sdks/agent/README.md)
 
 * [run](docs/sdks/agent/README.md#run) - Run Agent
-* [stop](docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
-* [status](docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
+* [stop](docs/sdks/agent/README.md#stop) - Stop Agent
+* [status](docs/sdks/agent/README.md#status) - Get Agent State
 
 ### [interact](docs/sdks/interact/README.md)
 
-* [install](docs/sdks/interact/README.md#install) - Install Chocolatey Packages
 * [click](docs/sdks/interact/README.md#click) - Click
 * [drag](docs/sdks/interact/README.md#drag) - Drag
 * [screenshot](docs/sdks/interact/README.md#screenshot) - Take Screenshot
@@ -258,16 +257,17 @@ run();
 * [type](docs/sdks/interact/README.md#type) - Type Text
 * [scroll](docs/sdks/interact/README.md#scroll) - Scroll
 * [getFile](docs/sdks/interact/README.md#getfile) - Get File
+* [install](docs/sdks/interact/README.md#install) - Install Applications
 
 
 ### [windows](docs/sdks/windows/README.md)
 
-* [start](docs/sdks/windows/README.md#start) - Start Vm
-* [pause](docs/sdks/windows/README.md#pause) - Pause Vm
-* [resume](docs/sdks/windows/README.md#resume) - Resume Vm
-* [state](docs/sdks/windows/README.md#state) - Get Vm Status
-* [instances](docs/sdks/windows/README.md#instances) - Get Instances
-* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Vm
+* [start](docs/sdks/windows/README.md#start) - Start Instance
+* [pause](docs/sdks/windows/README.md#pause) - Pause Instance
+* [resume](docs/sdks/windows/README.md#resume) - Resume Instance
+* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Instance
+* [state](docs/sdks/windows/README.md#state) - Get Instance State
+* [instances](docs/sdks/windows/README.md#instances) - Get All Instances
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -288,23 +288,23 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 <summary>Available standalone functions</summary>
 
 - [`agentRun`](docs/sdks/agent/README.md#run) - Run Agent
-- [`agentStatus`](docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
-- [`agentStop`](docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
+- [`agentStatus`](docs/sdks/agent/README.md#status) - Get Agent State
+- [`agentStop`](docs/sdks/agent/README.md#stop) - Stop Agent
 - [`interactClick`](docs/sdks/interact/README.md#click) - Click
 - [`interactDrag`](docs/sdks/interact/README.md#drag) - Drag
 - [`interactGetFile`](docs/sdks/interact/README.md#getfile) - Get File
-- [`interactInstall`](docs/sdks/interact/README.md#install) - Install Chocolatey Packages
+- [`interactInstall`](docs/sdks/interact/README.md#install) - Install Applications
 - [`interactKeypress`](docs/sdks/interact/README.md#keypress) - Keypress
 - [`interactMove`](docs/sdks/interact/README.md#move) - Move Mouse
 - [`interactScreenshot`](docs/sdks/interact/README.md#screenshot) - Take Screenshot
 - [`interactScroll`](docs/sdks/interact/README.md#scroll) - Scroll
 - [`interactType`](docs/sdks/interact/README.md#type) - Type Text
-- [`windowsInstances`](docs/sdks/windows/README.md#instances) - Get Instances
-- [`windowsPause`](docs/sdks/windows/README.md#pause) - Pause Vm
-- [`windowsResume`](docs/sdks/windows/README.md#resume) - Resume Vm
-- [`windowsStart`](docs/sdks/windows/README.md#start) - Start Vm
-- [`windowsState`](docs/sdks/windows/README.md#state) - Get Vm Status
-- [`windowsTerminate`](docs/sdks/windows/README.md#terminate) - Terminate Vm
+- [`windowsInstances`](docs/sdks/windows/README.md#instances) - Get All Instances
+- [`windowsPause`](docs/sdks/windows/README.md#pause) - Pause Instance
+- [`windowsResume`](docs/sdks/windows/README.md#resume) - Resume Instance
+- [`windowsStart`](docs/sdks/windows/README.md#start) - Start Instance
+- [`windowsState`](docs/sdks/windows/README.md#state) - Get Instance State
+- [`windowsTerminate`](docs/sdks/windows/README.md#terminate) - Terminate Instance
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

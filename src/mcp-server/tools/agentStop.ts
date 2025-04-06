@@ -12,7 +12,7 @@ const args = {
 
 export const tool$agentStop: ToolDefinition<typeof args> = {
   name: "agent-stop",
-  description: `Stop Agent Endpoint
+  description: `Stop Agent
 
 Stop a running agent for a specific instance.
 

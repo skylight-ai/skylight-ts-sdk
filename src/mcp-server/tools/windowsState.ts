@@ -12,7 +12,7 @@ const args = {
 
 export const tool$windowsState: ToolDefinition<typeof args> = {
   name: "windows-state",
-  description: `Get Vm Status
+  description: `Get Instance State
 
 Requires API key authentication.`,
   args,

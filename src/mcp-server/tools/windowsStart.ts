@@ -12,9 +12,9 @@ const args = {
 
 export const tool$windowsStart: ToolDefinition<typeof args> = {
   name: "windows-start",
-  description: `Start Vm
+  description: `Start Instance
 
-Start a new Windows VM instance.
+Start a new Windows  instance.
 
 - timeout_minutes: Optional timeout in minutes (default: 60)
 

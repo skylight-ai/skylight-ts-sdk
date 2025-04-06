@@ -12,7 +12,7 @@ const args = {
 
 export const tool$windowsTerminate: ToolDefinition<typeof args> = {
   name: "windows-terminate",
-  description: `Terminate Vm
+  description: `Terminate Instance
 
 Requires API key authentication.`,
   args,

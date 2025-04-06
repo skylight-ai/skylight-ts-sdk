@@ -25,10 +25,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Start Vm
+ * Start Instance
  *
  * @remarks
- * Start a new Windows VM instance.
+ * Start a new Windows  instance.
  *
  * - timeout_minutes: Optional timeout in minutes (default: 60)
  *

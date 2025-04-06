@@ -23,7 +23,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Instances
+ * Get All Instances
  *
  * @remarks
  * Requires API key authentication.

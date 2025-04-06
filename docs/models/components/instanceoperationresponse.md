@@ -8,14 +8,16 @@ import { InstanceOperationResponse } from "skylight-sdk/models/components";
 let value: InstanceOperationResponse = {
   status: "<string>",
   message: "<string>",
-  awsState: "<string>",
+  state: "<string>",
+  livestreamUrl: "<string>",
 };
 ```
 
 ## Fields
 
-| Field                            | Type                             | Required                         | Description                      | Example                          |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `status`                         | *string*                         | :heavy_check_mark:               | Status of the operation          | success                          |
-| `message`                        | *string*                         | :heavy_check_mark:               | Human-readable status message    | Operation completed successfully |
-| `awsState`                       | *string*                         | :heavy_check_mark:               | AWS state of the instance        | running                          |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `status`                                                         | *string*                                                         | :heavy_check_mark:                                               | Status of the operation                                          | success                                                          |
+| `message`                                                        | *string*                                                         | :heavy_check_mark:                                               | Human-readable status message                                    | Operation completed successfully                                 |
+| `state`                                                          | *string*                                                         | :heavy_check_mark:                                               | State of the instance (running, pending, hibernated, terminated) | running                                                          |
+| `livestreamUrl`                                                  | *string*                                                         | :heavy_check_mark:                                               | URL to livestream the instance                                   | launchskylight.com/embed/i-123456                                |
