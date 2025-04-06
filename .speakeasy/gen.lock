@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.7
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.4
-  configChecksum: 96774e3e37e4c8d67caefaa3f47c33c2
+  releaseVersion: 0.1.0
+  configChecksum: 63219a4201325d16e3648be0634e3790
   repoURL: https://github.com/skylight-ai/skylight-ts-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-ts-sdk
   published: true
@@ -19,6 +19,7 @@ features:
     devContainers: 2.90.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
+    flattening: 2.82.1
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0

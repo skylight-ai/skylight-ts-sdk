@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactKeypress(
   client: SkylightCore,
-  request: operations.KeypressRequest,
+  instanceId: string,
+  keyRequest: components.KeyRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +55,16 @@ export function interactKeypress(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    keyRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.KeypressRequest,
+  instanceId: string,
+  keyRequest: components.KeyRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +84,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.KeypressRequest = {
+    instanceId: instanceId,
+    keyRequest: keyRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.KeypressRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

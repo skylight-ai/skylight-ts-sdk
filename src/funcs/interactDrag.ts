@@ -38,7 +38,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactDrag(
   client: SkylightCore,
-  request: operations.DragRequest,
+  instanceId: string,
+  dragRequest: components.DragRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -57,14 +58,16 @@ export function interactDrag(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    dragRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.DragRequest,
+  instanceId: string,
+  dragRequest: components.DragRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -84,8 +87,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.DragRequest = {
+    instanceId: instanceId,
+    dragRequest: dragRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.DragRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

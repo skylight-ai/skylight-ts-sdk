@@ -7,7 +7,6 @@ import { agentStatus } from "../funcs/agentStatus.js";
 import { agentStop } from "../funcs/agentStop.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Agent extends ClientSDK {
@@ -20,12 +19,14 @@ export class Agent extends ClientSDK {
    * Requires API key authentication.
    */
   async run(
-    request: operations.RunRequest,
+    instanceId: string,
+    claudeRequest: components.ClaudeRequest,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(agentRun(
       this,
-      request,
+      instanceId,
+      claudeRequest,
       options,
     ));
   }
@@ -39,12 +40,12 @@ export class Agent extends ClientSDK {
    * Requires API key authentication.
    */
   async stop(
-    request: operations.StopRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<components.StandardResponse> {
     return unwrapAsync(agentStop(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
@@ -58,12 +59,12 @@ export class Agent extends ClientSDK {
    * Requires API key authentication.
    */
   async status(
-    request: operations.StatusRequest,
+    agentId: string,
     options?: RequestOptions,
   ): Promise<components.AgentStatusResponse> {
     return unwrapAsync(agentStatus(
       this,
-      request,
+      agentId,
       options,
     ));
   }
