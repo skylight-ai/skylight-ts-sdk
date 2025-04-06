@@ -10,65 +10,46 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage _
 </div>
 
 <!-- Start Summary [summary] -->
-
 ## Summary
 
 Skylight API: Skylight API Documentation
 
+
         # Skylight API Documentation
-
+        
         This API allows you to interact with Windows instances.
-
+        
         ## Authentication
-
+        
         All endpoints require API key authentication. Include your API key in the `X-API-Key` header.
-
+         
         ## Support
-
+        
         For support, please join our discord.
-
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
-
 ## Table of Contents
-
 <!-- $toc-max-depth=2 -->
-
--  [skylight-sdk](#skylight-sdk)
-   -  [Summary](#summary)
-   -  [Table of Contents](#table-of-contents)
-   -  [SDK Installation](#sdk-installation)
-      -  [NPM](#npm)
-      -  [PNPM](#pnpm)
-      -  [Bun](#bun)
-      -  [Yarn](#yarn)
-      -  [Model Context Protocol (MCP) Server](#model-context-protocol-mcp-server)
-   -  [Requirements](#requirements)
-   -  [SDK Example Usage](#sdk-example-usage)
-      -  [Example](#example)
-   -  [Authentication](#authentication)
-      -  [Per-Client Security Schemes](#per-client-security-schemes)
-   -  [Available Resources and Operations](#available-resources-and-operations)
-      -  [agent](#agent)
-      -  [interact](#interact)
-      -  [windows](#windows)
-   -  [Standalone functions](#standalone-functions)
-   -  [Retries](#retries)
-   -  [Error Handling](#error-handling)
-   -  [Server Selection](#server-selection)
-      -  [Override Server URL Per-Client](#override-server-url-per-client)
-   -  [Custom HTTP Client](#custom-http-client)
-   -  [Debugging](#debugging)
--  [Development](#development)
-   -  [Maturity](#maturity)
-   -  [Contributions](#contributions)
-      -  [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
+* [skylight-sdk](#skylight-sdk)
+  * [SDK Installation](#sdk-installation)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Debugging](#debugging)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
 
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
-
 ## SDK Installation
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
@@ -103,6 +84,7 @@ yarn add skylight-sdk zod
 > [!NOTE]
 > This package is published with CommonJS and ES Modules (ESM) support.
 
+
 ### Model Context Protocol (MCP) Server
 
 This SDK is also an installable MCP server where the various SDK methods are
@@ -117,21 +99,17 @@ Add the following server definition to your `claude_desktop_config.json` file:
 
 ```json
 {
-	"mcpServers": {
-		"Skylight": {
-			"command": "npx",
-			"args": [
-				"-y",
-				"--package",
-				"skylight-sdk",
-				"--",
-				"mcp",
-				"start",
-				"--apikey",
-				"..."
-			]
-		}
-	}
+  "mcpServers": {
+    "Skylight": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "skylight-sdk",
+        "--",
+        "mcp", "start",
+        "--apikey", "..."
+      ]
+    }
+  }
 }
 ```
 
@@ -144,21 +122,17 @@ Create a `.cursor/mcp.json` file in your project root with the following content
 
 ```json
 {
-	"mcpServers": {
-		"Skylight": {
-			"command": "npx",
-			"args": [
-				"-y",
-				"--package",
-				"skylight-sdk",
-				"--",
-				"mcp",
-				"start",
-				"--apikey",
-				"..."
-			]
-		}
-	}
+  "mcpServers": {
+    "Skylight": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "skylight-sdk",
+        "--",
+        "mcp", "start",
+        "--apikey", "..."
+      ]
+    }
+  }
 }
 ```
 
@@ -174,14 +148,17 @@ chmod +x mcp-server
 
 If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
 
+
 ```json
 {
-	"mcpServers": {
-		"Todos": {
-			"command": "./DOWNLOAD/PATH/mcp-server",
-			"args": ["start"]
-		}
-	}
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
 }
 ```
 
@@ -190,19 +167,15 @@ For a full list of server arguments, run:
 ```sh
 npx -y --package skylight-sdk -- mcp start --help
 ```
-
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
-
 ## Requirements
 
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
-
 <!-- End Requirements [requirements] -->
 
 <!-- Start SDK Example Usage [usage] -->
-
 ## SDK Example Usage
 
 ### Example
@@ -211,23 +184,22 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { Skylight } from "skylight-sdk";
 
 const skylight = new Skylight({
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	const result = await skylight.windows.start({});
+  const result = await skylight.windows.start({});
 
-	// Handle the result
-	console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
-```
 
+```
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Authentication [security] -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -239,28 +211,26 @@ This SDK supports the following security scheme globally:
 | `apikey` | apiKey | API key | `SKYLIGHT_APIKEY`    |
 
 To authenticate with the API the `apikey` parameter must be set when initializing the SDK client instance. For example:
-
 ```typescript
 import { Skylight } from "skylight-sdk";
 
 const skylight = new Skylight({
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	const result = await skylight.windows.start({});
+  const result = await skylight.windows.start({});
 
-	// Handle the result
-	console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
-```
 
+```
 <!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
-
 ## Available Resources and Operations
 
 <details open>
@@ -268,36 +238,36 @@ run();
 
 ### [agent](docs/sdks/agent/README.md)
 
--  [run](docs/sdks/agent/README.md#run) - Run Agent
--  [stop](docs/sdks/agent/README.md#stop) - Stop Agent
--  [status](docs/sdks/agent/README.md#status) - Get Agent State
+* [run](docs/sdks/agent/README.md#run) - Run Agent
+* [stop](docs/sdks/agent/README.md#stop) - Stop Agent
+* [status](docs/sdks/agent/README.md#status) - Get Agent State
 
 ### [interact](docs/sdks/interact/README.md)
 
--  [click](docs/sdks/interact/README.md#click) - Click
--  [drag](docs/sdks/interact/README.md#drag) - Drag
--  [screenshot](docs/sdks/interact/README.md#screenshot) - Take Screenshot
--  [move](docs/sdks/interact/README.md#move) - Move Mouse
--  [keypress](docs/sdks/interact/README.md#keypress) - Keypress
--  [type](docs/sdks/interact/README.md#type) - Type Text
--  [scroll](docs/sdks/interact/README.md#scroll) - Scroll
--  [getFile](docs/sdks/interact/README.md#getfile) - Get File
--  [install](docs/sdks/interact/README.md#install) - Install Applications
+* [click](docs/sdks/interact/README.md#click) - Click
+* [drag](docs/sdks/interact/README.md#drag) - Drag
+* [screenshot](docs/sdks/interact/README.md#screenshot) - Take Screenshot
+* [move](docs/sdks/interact/README.md#move) - Move Mouse
+* [keypress](docs/sdks/interact/README.md#keypress) - Keypress
+* [type](docs/sdks/interact/README.md#type) - Type Text
+* [scroll](docs/sdks/interact/README.md#scroll) - Scroll
+* [getFile](docs/sdks/interact/README.md#getfile) - Get File
+* [install](docs/sdks/interact/README.md#install) - Install Applications
+
 
 ### [windows](docs/sdks/windows/README.md)
 
--  [start](docs/sdks/windows/README.md#start) - Start Instance
--  [pause](docs/sdks/windows/README.md#pause) - Pause Instance
--  [resume](docs/sdks/windows/README.md#resume) - Resume Instance
--  [terminate](docs/sdks/windows/README.md#terminate) - Terminate Instance
--  [state](docs/sdks/windows/README.md#state) - Get Instance State
--  [instances](docs/sdks/windows/README.md#instances) - Get All Instances
+* [start](docs/sdks/windows/README.md#start) - Start Instance
+* [pause](docs/sdks/windows/README.md#pause) - Pause Instance
+* [resume](docs/sdks/windows/README.md#resume) - Resume Instance
+* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Instance
+* [state](docs/sdks/windows/README.md#state) - Get Instance State
+* [instances](docs/sdks/windows/README.md#instances) - Get All Instances
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Standalone functions [standalone-funcs] -->
-
 ## Standalone functions
 
 All the methods listed above are available as standalone functions. These
@@ -312,103 +282,97 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
--  [`agentRun`](docs/sdks/agent/README.md#run) - Run Agent
--  [`agentStatus`](docs/sdks/agent/README.md#status) - Get Agent State
--  [`agentStop`](docs/sdks/agent/README.md#stop) - Stop Agent
--  [`interactClick`](docs/sdks/interact/README.md#click) - Click
--  [`interactDrag`](docs/sdks/interact/README.md#drag) - Drag
--  [`interactGetFile`](docs/sdks/interact/README.md#getfile) - Get File
--  [`interactInstall`](docs/sdks/interact/README.md#install) - Install Applications
--  [`interactKeypress`](docs/sdks/interact/README.md#keypress) - Keypress
--  [`interactMove`](docs/sdks/interact/README.md#move) - Move Mouse
--  [`interactScreenshot`](docs/sdks/interact/README.md#screenshot) - Take Screenshot
--  [`interactScroll`](docs/sdks/interact/README.md#scroll) - Scroll
--  [`interactType`](docs/sdks/interact/README.md#type) - Type Text
--  [`windowsInstances`](docs/sdks/windows/README.md#instances) - Get All Instances
--  [`windowsPause`](docs/sdks/windows/README.md#pause) - Pause Instance
--  [`windowsResume`](docs/sdks/windows/README.md#resume) - Resume Instance
--  [`windowsStart`](docs/sdks/windows/README.md#start) - Start Instance
--  [`windowsState`](docs/sdks/windows/README.md#state) - Get Instance State
--  [`windowsTerminate`](docs/sdks/windows/README.md#terminate) - Terminate Instance
+- [`agentRun`](docs/sdks/agent/README.md#run) - Run Agent
+- [`agentStatus`](docs/sdks/agent/README.md#status) - Get Agent State
+- [`agentStop`](docs/sdks/agent/README.md#stop) - Stop Agent
+- [`interactClick`](docs/sdks/interact/README.md#click) - Click
+- [`interactDrag`](docs/sdks/interact/README.md#drag) - Drag
+- [`interactGetFile`](docs/sdks/interact/README.md#getfile) - Get File
+- [`interactInstall`](docs/sdks/interact/README.md#install) - Install Applications
+- [`interactKeypress`](docs/sdks/interact/README.md#keypress) - Keypress
+- [`interactMove`](docs/sdks/interact/README.md#move) - Move Mouse
+- [`interactScreenshot`](docs/sdks/interact/README.md#screenshot) - Take Screenshot
+- [`interactScroll`](docs/sdks/interact/README.md#scroll) - Scroll
+- [`interactType`](docs/sdks/interact/README.md#type) - Type Text
+- [`windowsInstances`](docs/sdks/windows/README.md#instances) - Get All Instances
+- [`windowsPause`](docs/sdks/windows/README.md#pause) - Pause Instance
+- [`windowsResume`](docs/sdks/windows/README.md#resume) - Resume Instance
+- [`windowsStart`](docs/sdks/windows/README.md#start) - Start Instance
+- [`windowsState`](docs/sdks/windows/README.md#state) - Get Instance State
+- [`windowsTerminate`](docs/sdks/windows/README.md#terminate) - Terminate Instance
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
 
 <!-- Start Retries [retries] -->
-
 ## Retries
 
-Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
-
 ```typescript
 import { Skylight } from "skylight-sdk";
 
 const skylight = new Skylight({
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	const result = await skylight.windows.start(
-		{},
-		{
-			retries: {
-				strategy: "backoff",
-				backoff: {
-					initialInterval: 1,
-					maxInterval: 50,
-					exponent: 1.1,
-					maxElapsedTime: 100,
-				},
-				retryConnectionErrors: false,
-			},
-		}
-	);
+  const result = await skylight.windows.start({}, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-	// Handle the result
-	console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
+
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
-
 ```typescript
 import { Skylight } from "skylight-sdk";
 
 const skylight = new Skylight({
-	retryConfig: {
-		strategy: "backoff",
-		backoff: {
-			initialInterval: 1,
-			maxInterval: 50,
-			exponent: 1.1,
-			maxElapsedTime: 100,
-		},
-		retryConnectionErrors: false,
-	},
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
+    },
+    retryConnectionErrors: false,
+  },
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	const result = await skylight.windows.start({});
+  const result = await skylight.windows.start({});
 
-	// Handle the result
-	console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
-```
 
+```
 <!-- End Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
-
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the _Errors_ tables in SDK docs. For example, the `start` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `start` method may throw the following errors:
 
 | Error Type                    | Status Code | Content Type     |
 | ----------------------------- | ----------- | ---------------- |
@@ -422,103 +386,100 @@ If the method throws an error and it is not captured by the known errors, it wil
 ```typescript
 import { Skylight } from "skylight-sdk";
 import {
-	ForbiddenErrorResponse,
-	HTTPValidationError,
-	SDKValidationError,
-	ServerErrorResponse,
+  ForbiddenErrorResponse,
+  HTTPValidationError,
+  SDKValidationError,
+  ServerErrorResponse,
 } from "skylight-sdk/models/errors";
 
 const skylight = new Skylight({
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	let result;
-	try {
-		result = await skylight.windows.start({});
+  let result;
+  try {
+    result = await skylight.windows.start({});
 
-		// Handle the result
-		console.log(result);
-	} catch (err) {
-		switch (true) {
-			// The server response does not match the expected SDK schema
-			case err instanceof SDKValidationError: {
-				// Pretty-print will provide a human-readable multi-line error message
-				console.error(err.pretty());
-				// Raw value may also be inspected
-				console.error(err.rawValue);
-				return;
-			}
-			case err instanceof ForbiddenErrorResponse: {
-				// Handle err.data$: ForbiddenErrorResponseData
-				console.error(err);
-				return;
-			}
-			case err instanceof HTTPValidationError: {
-				// Handle err.data$: HTTPValidationErrorData
-				console.error(err);
-				return;
-			}
-			case err instanceof ServerErrorResponse: {
-				// Handle err.data$: ServerErrorResponseData
-				console.error(err);
-				return;
-			}
-			default: {
-				// Other errors such as network errors, see HTTPClientErrors for more details
-				throw err;
-			}
-		}
-	}
+    // Handle the result
+    console.log(result);
+  } catch (err) {
+    switch (true) {
+      // The server response does not match the expected SDK schema
+      case (err instanceof SDKValidationError): {
+        // Pretty-print will provide a human-readable multi-line error message
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof ForbiddenErrorResponse): {
+        // Handle err.data$: ForbiddenErrorResponseData
+        console.error(err);
+        return;
+      }
+      case (err instanceof HTTPValidationError): {
+        // Handle err.data$: HTTPValidationErrorData
+        console.error(err);
+        return;
+      }
+      case (err instanceof ServerErrorResponse): {
+        // Handle err.data$: ServerErrorResponseData
+        console.error(err);
+        return;
+      }
+      default: {
+        // Other errors such as network errors, see HTTPClientErrors for more details
+        throw err;
+      }
+    }
+  }
 }
 
 run();
+
 ```
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
 
 In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
 
-| HTTP Client Error     | Description                                          |
-| --------------------- | ---------------------------------------------------- |
-| RequestAbortedError   | HTTP request was aborted by the client               |
-| RequestTimeoutError   | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError       | HTTP client was unable to make a request to a server |
-| InvalidRequestError   | Any input used to create a request is invalid        |
-| UnexpectedClientError | Unrecognised or unexpected error                     |
-
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
-
 ## Server Selection
 
 ### Override Server URL Per-Client
 
 The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-
 ```typescript
 import { Skylight } from "skylight-sdk";
 
 const skylight = new Skylight({
-	serverURL: "https://api.launchskylight.com",
-	apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
+  serverURL: "https://api.launchskylight.com",
+  apikey: process.env["SKYLIGHT_APIKEY"] ?? "",
 });
 
 async function run() {
-	const result = await skylight.windows.start({});
+  const result = await skylight.windows.start({});
 
-	// Handle the result
-	console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
-```
 
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
-
 ## Custom HTTP Client
 
 The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
@@ -540,36 +501,34 @@ import { Skylight } from "skylight-sdk";
 import { HTTPClient } from "skylight-sdk/lib/http";
 
 const httpClient = new HTTPClient({
-	// fetcher takes a function that has the same signature as native `fetch`.
-	fetcher: (request) => {
-		return fetch(request);
-	},
+  // fetcher takes a function that has the same signature as native `fetch`.
+  fetcher: (request) => {
+    return fetch(request);
+  }
 });
 
 httpClient.addHook("beforeRequest", (request) => {
-	const nextRequest = new Request(request, {
-		signal: request.signal || AbortSignal.timeout(5000),
-	});
+  const nextRequest = new Request(request, {
+    signal: request.signal || AbortSignal.timeout(5000)
+  });
 
-	nextRequest.headers.set("x-custom-header", "custom value");
+  nextRequest.headers.set("x-custom-header", "custom value");
 
-	return nextRequest;
+  return nextRequest;
 });
 
 httpClient.addHook("requestError", (error, request) => {
-	console.group("Request Error");
-	console.log("Reason:", `${error}`);
-	console.log("Endpoint:", `${request.method} ${request.url}`);
-	console.groupEnd();
+  console.group("Request Error");
+  console.log("Reason:", `${error}`);
+  console.log("Endpoint:", `${request.method} ${request.url}`);
+  console.groupEnd();
 });
 
 const sdk = new Skylight({ httpClient });
 ```
-
 <!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Debugging [debug] -->
-
 ## Debugging
 
 You can setup your SDK to emit debug logs for SDK requests and responses.
@@ -586,7 +545,6 @@ const sdk = new Skylight({ debugLogger: console });
 ```
 
 You can also enable a default debug logger by setting an environment variable `SKYLIGHT_DEBUG` to true.
-
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

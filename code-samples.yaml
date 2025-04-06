@@ -32,7 +32,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.drag(\"<id>\", {\n    path: [\n      {\n        \"x\": 100,\n        \"y\": 200,\n      },\n      {\n        \"x\": 200,\n        \"y\": 300,\n      },\n      {\n        \"x\": 300,\n        \"y\": 400,\n      },\n    ],\n    step: 5,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.drag(\"<id>\", {\n    path: [\n      {\n        \"x\": 100,\n        \"y\": 200,\n      },\n    ],\n    step: 5,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/file/{instance_id}"]["post"]
     update:
       "x-codeSamples":

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: cb3cbe6b-d32d-446f-8806-a31ce0a2324c
 management:
-  docChecksum: e220c63147de4c63b7505d00135113ca
-  docVersion: 1.0.7
+  docChecksum: 8c74bb130cbcd0180745c3ced9841ea2
+  docVersion: 1.0.9
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.1.0
-  configChecksum: 63219a4201325d16e3648be0634e3790
+  releaseVersion: 0.1.1
+  configChecksum: e60b6dc82be7db5f3181c76949e41ce6
   repoURL: https://github.com/skylight-ai/skylight-ts-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-ts-sdk
   published: true
@@ -49,7 +49,6 @@ generatedFiles:
   - docs/models/components/files.md
   - docs/models/components/instanceoperationresponse.md
   - docs/models/components/instancerequest.md
-  - docs/models/components/instances.md
   - docs/models/components/instanceslistresponse.md
   - docs/models/components/instancestartresponse.md
   - docs/models/components/instancestatusresponse.md
@@ -270,7 +269,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"state": "running", "knowledge": "unknown"}
+          application/json: {"instance_id": "i-123456", "state": "running", "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -281,7 +280,7 @@ examples:
     speakeasy-default-instances:
       responses:
         "200":
-          application/json: {"instances": [{}, {}]}
+          application/json: {"instances": [{"instance_id": "i-123456", "state": "running", "knowledge": "The user previously asked to perform ....", "livestream_url": "https://launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}]}
         "403":
           application/json: {"detail": "<string>"}
         "500":
@@ -338,7 +337,7 @@ examples:
         path:
           instance_id: "<id>"
       requestBody:
-        application/json: {"path": [{"x": 100, "y": 200}, {"x": 200, "y": 300}, {"x": 300, "y": 400}], "button": "left", "step": 5}
+        application/json: {"path": [{"x": 100, "y": 200}], "button": "left", "step": 5}
       responses:
         "200":
           application/json: {"status": "success", "message": "<string>"}
@@ -416,7 +415,7 @@ examples:
         path:
           instance_id: "<id>"
       requestBody:
-        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": -100, "step": 20}
+        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": 100, "step": 20}
       responses:
         "200":
           application/json: {"status": "success", "message": "<string>"}
