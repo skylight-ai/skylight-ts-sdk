@@ -35,7 +35,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactInstall(
   client: SkylightCore,
-  request: operations.InstallRequest,
+  instanceId: string,
+  packageInstallRequest: components.PackageInstallRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +55,16 @@ export function interactInstall(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    packageInstallRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.InstallRequest,
+  instanceId: string,
+  packageInstallRequest: components.PackageInstallRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +84,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.InstallRequest = {
+    instanceId: instanceId,
+    packageInstallRequest: packageInstallRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.InstallRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

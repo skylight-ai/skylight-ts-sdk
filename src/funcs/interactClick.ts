@@ -42,7 +42,8 @@ import { Result } from "../types/fp.js";
  */
 export function interactClick(
   client: SkylightCore,
-  request: operations.ClickRequest,
+  instanceId: string,
+  clickRequest: components.ClickRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,14 +62,16 @@ export function interactClick(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
+    clickRequest,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.ClickRequest,
+  instanceId: string,
+  clickRequest: components.ClickRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -88,8 +91,13 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.ClickRequest = {
+    instanceId: instanceId,
+    clickRequest: clickRequest,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.ClickRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

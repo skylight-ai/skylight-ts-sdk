@@ -35,7 +35,7 @@ import { Result } from "../types/fp.js";
  */
 export function interactScreenshot(
   client: SkylightCore,
-  request: operations.ScreenshotRequest,
+  instanceId: string,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +54,14 @@ export function interactScreenshot(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.ScreenshotRequest,
+  instanceId: string,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +81,12 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.ScreenshotRequest = {
+    instanceId: instanceId,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.ScreenshotRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

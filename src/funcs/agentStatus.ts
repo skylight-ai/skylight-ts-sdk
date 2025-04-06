@@ -35,7 +35,7 @@ import { Result } from "../types/fp.js";
  */
 export function agentStatus(
   client: SkylightCore,
-  request: operations.StatusRequest,
+  agentId: string,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,14 +54,14 @@ export function agentStatus(
 > {
   return new APIPromise($do(
     client,
-    request,
+    agentId,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.StatusRequest,
+  agentId: string,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,8 +81,12 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.StatusRequest = {
+    agentId: agentId,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.StatusRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

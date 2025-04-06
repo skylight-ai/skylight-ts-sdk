@@ -33,7 +33,7 @@ import { Result } from "../types/fp.js";
  */
 export function windowsPause(
   client: SkylightCore,
-  request: operations.PauseRequest,
+  instanceId: string,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -52,14 +52,14 @@ export function windowsPause(
 > {
   return new APIPromise($do(
     client,
-    request,
+    instanceId,
     options,
   ));
 }
 
 async function $do(
   client: SkylightCore,
-  request: operations.PauseRequest,
+  instanceId: string,
   options?: RequestOptions,
 ): Promise<
   [
@@ -79,8 +79,12 @@ async function $do(
     APICall,
   ]
 > {
+  const input: operations.PauseRequest = {
+    instanceId: instanceId,
+  };
+
   const parsed = safeParse(
-    request,
+    input,
     (value) => operations.PauseRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

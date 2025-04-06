@@ -10,7 +10,6 @@ import { windowsState } from "../funcs/windowsState.js";
 import { windowsTerminate } from "../funcs/windowsTerminate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Windows extends ClientSDK {
@@ -42,12 +41,12 @@ export class Windows extends ClientSDK {
    * Requires API key authentication.
    */
   async pause(
-    request: operations.PauseRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<components.InstanceOperationResponse> {
     return unwrapAsync(windowsPause(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
@@ -59,12 +58,12 @@ export class Windows extends ClientSDK {
    * Requires API key authentication.
    */
   async resume(
-    request: operations.ResumeRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<components.InstanceOperationResponse> {
     return unwrapAsync(windowsResume(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
@@ -76,12 +75,12 @@ export class Windows extends ClientSDK {
    * Requires API key authentication.
    */
   async terminate(
-    request: operations.TerminateRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<components.InstanceOperationResponse> {
     return unwrapAsync(windowsTerminate(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
@@ -93,12 +92,12 @@ export class Windows extends ClientSDK {
    * Requires API key authentication.
    */
   async state(
-    request: operations.StateRequest,
+    instanceId: string,
     options?: RequestOptions,
   ): Promise<components.InstanceStatusResponse> {
     return unwrapAsync(windowsState(
       this,
-      request,
+      instanceId,
       options,
     ));
   }
