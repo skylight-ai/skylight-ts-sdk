@@ -13,9 +13,3 @@ targets:
         publish:
             npm:
                 token: $npm_token
-        codeSamples:
-            registry:
-                location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-typescript-code-samples
-            labelOverride:
-                fixedValue: Typescript (SDK)
-            blocking: false
