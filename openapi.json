@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.7"
+    "version": "1.0.8"
   },
   "paths": {
     "/windows/start": {
@@ -1624,14 +1624,6 @@
             {
               "x": 100,
               "y": 200
-            },
-            {
-              "x": 200,
-              "y": 300
-            },
-            {
-              "x": 300,
-              "y": 400
             }
           ],
           "step": 5
@@ -2009,7 +2001,7 @@
         "title": "ScrollRequest",
         "example": {
           "scroll_x": 0,
-          "scroll_y": -100,
+          "scroll_y": 100,
           "step": 20,
           "x": 100,
           "y": 200
