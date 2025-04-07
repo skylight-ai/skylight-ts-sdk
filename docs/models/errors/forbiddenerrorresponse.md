@@ -1,5 +1,7 @@
 # ForbiddenErrorResponse
 
+Returned when the request cannot be processed due to authentication or authorization issues
+
 ## Example Usage
 
 ```typescript

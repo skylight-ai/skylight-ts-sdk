@@ -8,7 +8,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type InstanceOperationResponse = {
+export type ActiveOperationResponse = {
   /**
    * Status of the operation
    */
@@ -28,8 +28,8 @@ export type InstanceOperationResponse = {
 };
 
 /** @internal */
-export const InstanceOperationResponse$inboundSchema: z.ZodType<
-  InstanceOperationResponse,
+export const ActiveOperationResponse$inboundSchema: z.ZodType<
+  ActiveOperationResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -44,7 +44,7 @@ export const InstanceOperationResponse$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type InstanceOperationResponse$Outbound = {
+export type ActiveOperationResponse$Outbound = {
   status: string;
   message: string;
   state: string;
@@ -52,10 +52,10 @@ export type InstanceOperationResponse$Outbound = {
 };
 
 /** @internal */
-export const InstanceOperationResponse$outboundSchema: z.ZodType<
-  InstanceOperationResponse$Outbound,
+export const ActiveOperationResponse$outboundSchema: z.ZodType<
+  ActiveOperationResponse$Outbound,
   z.ZodTypeDef,
-  InstanceOperationResponse
+  ActiveOperationResponse
 > = z.object({
   status: z.string(),
   message: z.string(),
@@ -71,29 +71,29 @@ export const InstanceOperationResponse$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace InstanceOperationResponse$ {
-  /** @deprecated use `InstanceOperationResponse$inboundSchema` instead. */
-  export const inboundSchema = InstanceOperationResponse$inboundSchema;
-  /** @deprecated use `InstanceOperationResponse$outboundSchema` instead. */
-  export const outboundSchema = InstanceOperationResponse$outboundSchema;
-  /** @deprecated use `InstanceOperationResponse$Outbound` instead. */
-  export type Outbound = InstanceOperationResponse$Outbound;
+export namespace ActiveOperationResponse$ {
+  /** @deprecated use `ActiveOperationResponse$inboundSchema` instead. */
+  export const inboundSchema = ActiveOperationResponse$inboundSchema;
+  /** @deprecated use `ActiveOperationResponse$outboundSchema` instead. */
+  export const outboundSchema = ActiveOperationResponse$outboundSchema;
+  /** @deprecated use `ActiveOperationResponse$Outbound` instead. */
+  export type Outbound = ActiveOperationResponse$Outbound;
 }
 
-export function instanceOperationResponseToJSON(
-  instanceOperationResponse: InstanceOperationResponse,
+export function activeOperationResponseToJSON(
+  activeOperationResponse: ActiveOperationResponse,
 ): string {
   return JSON.stringify(
-    InstanceOperationResponse$outboundSchema.parse(instanceOperationResponse),
+    ActiveOperationResponse$outboundSchema.parse(activeOperationResponse),
   );
 }
 
-export function instanceOperationResponseFromJSON(
+export function activeOperationResponseFromJSON(
   jsonString: string,
-): SafeParseResult<InstanceOperationResponse, SDKValidationError> {
+): SafeParseResult<ActiveOperationResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => InstanceOperationResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InstanceOperationResponse' from JSON`,
+    (x) => ActiveOperationResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ActiveOperationResponse' from JSON`,
   );
 }

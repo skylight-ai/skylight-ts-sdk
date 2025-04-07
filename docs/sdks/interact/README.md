@@ -101,12 +101,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## drag
 
@@ -198,12 +199,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## screenshot
 
@@ -271,16 +273,17 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[components.ScreenshotResponse](../../models/components/screenshotresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## move
 
@@ -359,12 +362,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## keypress
 
@@ -449,12 +453,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 400, 404                      | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## type
 
@@ -533,12 +538,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## scroll
 
@@ -619,12 +625,13 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## getFile
 
@@ -699,16 +706,17 @@ run();
 
 ### Response
 
-**Promise\<[operations.GetFileResponse200GetFile](../../models/operations/getfileresponse200getfile.md)\>**
+**Promise\<[any](../../models/.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403, 404                   | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 400, 404                      | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
 
 ## install
 
@@ -789,9 +797,10 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 403                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ForbiddenErrorResponse | 403                           | application/json              |
+| errors.ErrorResponse          | 404                           | application/json              |
+| errors.HTTPValidationError    | 422                           | application/json              |
+| errors.ServerErrorResponse    | 500                           | application/json              |
+| errors.APIError               | 4XX, 5XX                      | \*/\*                         |

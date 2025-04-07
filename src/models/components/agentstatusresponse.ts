@@ -24,10 +24,6 @@ export type AgentStatusResponse = {
    */
   totalSteps: number;
   /**
-   * Number of steps in memory
-   */
-  stepCount: number;
-  /**
    * Final summary of agent execution
    */
   finalSummary?: string | null | undefined;
@@ -38,7 +34,7 @@ export type AgentStatusResponse = {
   /**
    * List of steps executed by the agent
    */
-  steps: Array<string>;
+  messages: Array<string>;
   /**
    * Timestamp when the agent was created
    */
@@ -103,10 +99,9 @@ export const AgentStatusResponse$inboundSchema: z.ZodType<
   agent_status: z.string(),
   is_running: z.boolean(),
   total_steps: z.number().int(),
-  step_count: z.number().int(),
   final_summary: z.nullable(z.string()).optional(),
   files: z.array(z.lazy(() => Files$inboundSchema)),
-  steps: z.array(z.string()),
+  messages: z.array(z.string()),
   created_at: z.string(),
   query: z.string(),
   agent_id: z.string(),
@@ -115,7 +110,6 @@ export const AgentStatusResponse$inboundSchema: z.ZodType<
     "agent_status": "agentStatus",
     "is_running": "isRunning",
     "total_steps": "totalSteps",
-    "step_count": "stepCount",
     "final_summary": "finalSummary",
     "created_at": "createdAt",
     "agent_id": "agentId",
@@ -127,10 +121,9 @@ export type AgentStatusResponse$Outbound = {
   agent_status: string;
   is_running: boolean;
   total_steps: number;
-  step_count: number;
   final_summary?: string | null | undefined;
   files: Array<Files$Outbound>;
-  steps: Array<string>;
+  messages: Array<string>;
   created_at: string;
   query: string;
   agent_id: string;
@@ -145,10 +138,9 @@ export const AgentStatusResponse$outboundSchema: z.ZodType<
   agentStatus: z.string(),
   isRunning: z.boolean(),
   totalSteps: z.number().int(),
-  stepCount: z.number().int(),
   finalSummary: z.nullable(z.string()).optional(),
   files: z.array(z.lazy(() => Files$outboundSchema)),
-  steps: z.array(z.string()),
+  messages: z.array(z.string()),
   createdAt: z.string(),
   query: z.string(),
   agentId: z.string(),
@@ -157,7 +149,6 @@ export const AgentStatusResponse$outboundSchema: z.ZodType<
     agentStatus: "agent_status",
     isRunning: "is_running",
     totalSteps: "total_steps",
-    stepCount: "step_count",
     finalSummary: "final_summary",
     createdAt: "created_at",
     agentId: "agent_id",

@@ -37,7 +37,7 @@ export function windowsTerminate(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.InstanceOperationResponse,
+    components.InactiveOperationResponse,
     | errors.ForbiddenErrorResponse
     | errors.HTTPValidationError
     | errors.ServerErrorResponse
@@ -64,7 +64,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.InstanceOperationResponse,
+      components.InactiveOperationResponse,
       | errors.ForbiddenErrorResponse
       | errors.HTTPValidationError
       | errors.ServerErrorResponse
@@ -155,7 +155,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.InstanceOperationResponse,
+    components.InactiveOperationResponse,
     | errors.ForbiddenErrorResponse
     | errors.HTTPValidationError
     | errors.ServerErrorResponse
@@ -167,7 +167,7 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.InstanceOperationResponse$inboundSchema),
+    M.json(200, components.InactiveOperationResponse$inboundSchema),
     M.jsonErr(403, errors.ForbiddenErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.jsonErr(500, errors.ServerErrorResponse$inboundSchema),

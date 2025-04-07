@@ -1,11 +1,11 @@
-# InstanceOperationResponse
+# ActiveOperationResponse
 
 ## Example Usage
 
 ```typescript
-import { InstanceOperationResponse } from "skylight-sdk/models/components";
+import { ActiveOperationResponse } from "skylight-sdk/models/components";
 
-let value: InstanceOperationResponse = {
+let value: ActiveOperationResponse = {
   status: "<string>",
   message: "<string>",
   state: "<string>",

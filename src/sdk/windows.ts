@@ -43,7 +43,7 @@ export class Windows extends ClientSDK {
   async pause(
     instanceId: string,
     options?: RequestOptions,
-  ): Promise<components.InstanceOperationResponse> {
+  ): Promise<components.InactiveOperationResponse> {
     return unwrapAsync(windowsPause(
       this,
       instanceId,
@@ -60,7 +60,7 @@ export class Windows extends ClientSDK {
   async resume(
     instanceId: string,
     options?: RequestOptions,
-  ): Promise<components.InstanceOperationResponse> {
+  ): Promise<components.ActiveOperationResponse> {
     return unwrapAsync(windowsResume(
       this,
       instanceId,
@@ -77,7 +77,7 @@ export class Windows extends ClientSDK {
   async terminate(
     instanceId: string,
     options?: RequestOptions,
-  ): Promise<components.InstanceOperationResponse> {
+  ): Promise<components.InactiveOperationResponse> {
     return unwrapAsync(windowsTerminate(
       this,
       instanceId,

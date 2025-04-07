@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 
+/**
+ * Returned when the request cannot be processed due to authentication or authorization issues
+ */
 export type ForbiddenErrorResponseData = {
   /**
    * Error message for forbidden access
@@ -11,6 +14,9 @@ export type ForbiddenErrorResponseData = {
   detail?: string;
 };
 
+/**
+ * Returned when the request cannot be processed due to authentication or authorization issues
+ */
 export class ForbiddenErrorResponse extends Error {
   /**
    * Error message for forbidden access

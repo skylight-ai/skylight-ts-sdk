@@ -41,9 +41,10 @@ export function interactInstall(
 ): APIPromise<
   Result<
     components.PackageInstallResponse,
+    | errors.ForbiddenErrorResponse
     | errors.ErrorResponse
     | errors.HTTPValidationError
-    | errors.ErrorResponse
+    | errors.ServerErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -70,9 +71,10 @@ async function $do(
   [
     Result<
       components.PackageInstallResponse,
+      | errors.ForbiddenErrorResponse
       | errors.ErrorResponse
       | errors.HTTPValidationError
-      | errors.ErrorResponse
+      | errors.ServerErrorResponse
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -150,7 +152,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "422", "4XX", "500", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -165,9 +167,10 @@ async function $do(
 
   const [result] = await M.match<
     components.PackageInstallResponse,
+    | errors.ForbiddenErrorResponse
     | errors.ErrorResponse
     | errors.HTTPValidationError
-    | errors.ErrorResponse
+    | errors.ServerErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -177,9 +180,10 @@ async function $do(
     | ConnectionError
   >(
     M.json(200, components.PackageInstallResponse$inboundSchema),
-    M.jsonErr(403, errors.ErrorResponse$inboundSchema),
+    M.jsonErr(403, errors.ForbiddenErrorResponse$inboundSchema),
+    M.jsonErr(404, errors.ErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    M.jsonErr(500, errors.ErrorResponse$inboundSchema),
+    M.jsonErr(500, errors.ServerErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

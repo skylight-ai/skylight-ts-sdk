@@ -1,14 +1,14 @@
-# PackageInstallResponse
+# InactiveOperationResponse
 
 ## Example Usage
 
 ```typescript
-import { PackageInstallResponse } from "skylight-sdk/models/components";
+import { InactiveOperationResponse } from "skylight-sdk/models/components";
 
-let value: PackageInstallResponse = {
+let value: InactiveOperationResponse = {
   status: "<string>",
-  message: "Operation completed successfully",
-  state: "running",
+  message: "<string>",
+  state: "<string>",
 };
 ```
 
@@ -19,4 +19,3 @@ let value: PackageInstallResponse = {
 | `status`                                                         | *string*                                                         | :heavy_check_mark:                                               | Status of the operation                                          | success                                                          |
 | `message`                                                        | *string*                                                         | :heavy_check_mark:                                               | Human-readable status message                                    | Operation completed successfully                                 |
 | `state`                                                          | *string*                                                         | :heavy_check_mark:                                               | State of the instance (running, pending, hibernated, terminated) | running                                                          |
-| `commandId`                                                      | *string*                                                         | :heavy_minus_sign:                                               | Command ID for tracking installation progress                    |                                                                  |

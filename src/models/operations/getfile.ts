@@ -13,11 +13,6 @@ export type GetFileRequest = {
   requestBody: { [k: string]: string };
 };
 
-/**
- * Presigned URL to download the file
- */
-export type GetFileResponse200GetFile = {};
-
 /** @internal */
 export const GetFileRequest$inboundSchema: z.ZodType<
   GetFileRequest,
@@ -78,53 +73,5 @@ export function getFileRequestFromJSON(
     jsonString,
     (x) => GetFileRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'GetFileRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const GetFileResponse200GetFile$inboundSchema: z.ZodType<
-  GetFileResponse200GetFile,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type GetFileResponse200GetFile$Outbound = {};
-
-/** @internal */
-export const GetFileResponse200GetFile$outboundSchema: z.ZodType<
-  GetFileResponse200GetFile$Outbound,
-  z.ZodTypeDef,
-  GetFileResponse200GetFile
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetFileResponse200GetFile$ {
-  /** @deprecated use `GetFileResponse200GetFile$inboundSchema` instead. */
-  export const inboundSchema = GetFileResponse200GetFile$inboundSchema;
-  /** @deprecated use `GetFileResponse200GetFile$outboundSchema` instead. */
-  export const outboundSchema = GetFileResponse200GetFile$outboundSchema;
-  /** @deprecated use `GetFileResponse200GetFile$Outbound` instead. */
-  export type Outbound = GetFileResponse200GetFile$Outbound;
-}
-
-export function getFileResponse200GetFileToJSON(
-  getFileResponse200GetFile: GetFileResponse200GetFile,
-): string {
-  return JSON.stringify(
-    GetFileResponse200GetFile$outboundSchema.parse(getFileResponse200GetFile),
-  );
-}
-
-export function getFileResponse200GetFileFromJSON(
-  jsonString: string,
-): SafeParseResult<GetFileResponse200GetFile, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetFileResponse200GetFile$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetFileResponse200GetFile' from JSON`,
   );
 }
