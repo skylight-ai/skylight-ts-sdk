@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.13"
+    "version": "1.0.14"
   },
   "paths": {
     "/windows/start": {
@@ -1470,12 +1470,6 @@
             "description": "Total number of steps executed",
             "example": 5
           },
-          "step_count": {
-            "type": "integer",
-            "title": "Step Count",
-            "description": "Number of steps in memory",
-            "example": 5
-          },
           "final_summary": {
             "anyOf": [
               {
@@ -1496,12 +1490,12 @@
             "title": "Files",
             "description": "List of files downloaded by the agent"
           },
-          "steps": {
+          "messages": {
             "items": {
               "type": "string"
             },
             "type": "array",
-            "title": "Steps",
+            "title": "Messages",
             "description": "List of steps executed by the agent"
           },
           "created_at": {
@@ -1525,9 +1519,8 @@
           "agent_status",
           "is_running",
           "total_steps",
-          "step_count",
           "files",
-          "steps",
+          "messages",
           "created_at",
           "query",
           "agent_id"
@@ -1540,7 +1533,7 @@
           "files": [
             {
               "description": "Downloaded PDF",
-              "filename": "document.pdf",
+              "filename": "C:/Users/Dekstop/document.pdf",
               "timestamp": "2023-01-01T12:00:00Z"
             }
           ],
