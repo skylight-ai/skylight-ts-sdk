@@ -15,6 +15,14 @@ export type InstanceStatusResponse = {
    */
   state: string;
   /**
+   * Timeout in minutes before instance auto-termination
+   */
+  timeout: number;
+  /**
+   * Minutes used by the instance so far
+   */
+  usedMinutes: number;
+  /**
    * Current knowledge of the instance
    */
   knowledge: string;
@@ -36,12 +44,15 @@ export const InstanceStatusResponse$inboundSchema: z.ZodType<
 > = z.object({
   instance_id: z.string(),
   state: z.string(),
+  timeout: z.number().int(),
+  used_minutes: z.number().int(),
   knowledge: z.string(),
   livestream_url: z.string(),
   assigned_at: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "instance_id": "instanceId",
+    "used_minutes": "usedMinutes",
     "livestream_url": "livestreamUrl",
     "assigned_at": "assignedAt",
   });
@@ -51,6 +62,8 @@ export const InstanceStatusResponse$inboundSchema: z.ZodType<
 export type InstanceStatusResponse$Outbound = {
   instance_id: string;
   state: string;
+  timeout: number;
+  used_minutes: number;
   knowledge: string;
   livestream_url: string;
   assigned_at?: string | null | undefined;
@@ -64,12 +77,15 @@ export const InstanceStatusResponse$outboundSchema: z.ZodType<
 > = z.object({
   instanceId: z.string(),
   state: z.string(),
+  timeout: z.number().int(),
+  usedMinutes: z.number().int(),
   knowledge: z.string(),
   livestreamUrl: z.string(),
   assignedAt: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     instanceId: "instance_id",
+    usedMinutes: "used_minutes",
     livestreamUrl: "livestream_url",
     assignedAt: "assigned_at",
   });

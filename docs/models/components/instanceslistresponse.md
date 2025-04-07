@@ -10,6 +10,8 @@ let value: InstancesListResponse = {
     {
       instanceId: "i-123456",
       state: "running",
+      timeout: 60,
+      usedMinutes: 10,
       knowledge: "unknown",
       livestreamUrl: "launchskylight.com/embed/i-123456",
       assignedAt: "2023-01-01T12:00:00Z",
@@ -17,6 +19,8 @@ let value: InstancesListResponse = {
     {
       instanceId: "i-789012",
       state: "stopped",
+      timeout: 60,
+      usedMinutes: 10,
       knowledge: "unknown",
       livestreamUrl: "launchskylight.com/embed/i-789012",
       assignedAt: "2023-01-02T12:00:00Z",

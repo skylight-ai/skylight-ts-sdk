@@ -22,10 +22,6 @@ export type PackageInstallResponse = {
    */
   state: string;
   /**
-   * URL to livestream the instance
-   */
-  livestreamUrl: string;
-  /**
    * Command ID for tracking installation progress
    */
   commandId?: string | null | undefined;
@@ -40,11 +36,9 @@ export const PackageInstallResponse$inboundSchema: z.ZodType<
   status: z.string(),
   message: z.string(),
   state: z.string(),
-  livestream_url: z.string(),
   command_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    "livestream_url": "livestreamUrl",
     "command_id": "commandId",
   });
 });
@@ -54,7 +48,6 @@ export type PackageInstallResponse$Outbound = {
   status: string;
   message: string;
   state: string;
-  livestream_url: string;
   command_id?: string | null | undefined;
 };
 
@@ -67,11 +60,9 @@ export const PackageInstallResponse$outboundSchema: z.ZodType<
   status: z.string(),
   message: z.string(),
   state: z.string(),
-  livestreamUrl: z.string(),
   commandId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    livestreamUrl: "livestream_url",
     commandId: "command_id",
   });
 });

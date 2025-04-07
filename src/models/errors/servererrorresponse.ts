@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 
+/**
+ * Returned when an unexpected server-side error occurs
+ */
 export type ServerErrorResponseData = {
   /**
    * Detailed error message from the server
@@ -11,6 +14,9 @@ export type ServerErrorResponseData = {
   detail: string;
 };
 
+/**
+ * Returned when an unexpected server-side error occurs
+ */
 export class ServerErrorResponse extends Error {
   /**
    * Detailed error message from the server

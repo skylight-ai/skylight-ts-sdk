@@ -13,7 +13,6 @@ import { interactScroll } from "../funcs/interactScroll.js";
 import { interactType } from "../funcs/interactType.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Interact extends ClientSDK {
@@ -80,7 +79,7 @@ export class Interact extends ClientSDK {
   async screenshot(
     instanceId: string,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<components.ScreenshotResponse> {
     return unwrapAsync(interactScreenshot(
       this,
       instanceId,
@@ -186,7 +185,7 @@ export class Interact extends ClientSDK {
     instanceId: string,
     requestBody: { [k: string]: string },
     options?: RequestOptions,
-  ): Promise<operations.GetFileResponse200GetFile> {
+  ): Promise<any> {
     return unwrapAsync(interactGetFile(
       this,
       instanceId,

@@ -155,7 +155,7 @@ run();
 
 ### Response
 
-**Promise\<[components.InstanceOperationResponse](../../models/components/instanceoperationresponse.md)\>**
+**Promise\<[components.InactiveOperationResponse](../../models/components/inactiveoperationresponse.md)\>**
 
 ### Errors
 
@@ -230,7 +230,7 @@ run();
 
 ### Response
 
-**Promise\<[components.InstanceOperationResponse](../../models/components/instanceoperationresponse.md)\>**
+**Promise\<[components.ActiveOperationResponse](../../models/components/activeoperationresponse.md)\>**
 
 ### Errors
 
@@ -305,7 +305,7 @@ run();
 
 ### Response
 
-**Promise\<[components.InstanceOperationResponse](../../models/components/instanceoperationresponse.md)\>**
+**Promise\<[components.InactiveOperationResponse](../../models/components/inactiveoperationresponse.md)\>**
 
 ### Errors
 

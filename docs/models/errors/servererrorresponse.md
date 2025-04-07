@@ -1,5 +1,7 @@
 # ServerErrorResponse
 
+Returned when an unexpected server-side error occurs
+
 ## Example Usage
 
 ```typescript
