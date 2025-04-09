@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.14"
+    "version": "1.0.15"
   },
   "paths": {
     "/windows/start": {
@@ -1337,6 +1337,88 @@
         }
       }
     },
+    "/agent/answer/{agent_id}": {
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Respond To Agent",
+        "description": "Send a human response to a waiting agent and resume its execution.\n\nRequires API key authentication.",
+        "operationId": "answer",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Response"
+              },
+              "example": {
+                "message": "Yes, proceed with the download"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Human response sent to agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StandardResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Agent not found or not waiting for input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to send response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/agent/status/{agent_id}": {
       "get": {
         "tags": [
@@ -1512,6 +1594,18 @@
             "type": "string",
             "title": "Agent Id",
             "description": "Unique identifier for the agent"
+          },
+          "human_input_request": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Human Input Request",
+            "description": "Information about the human input being requested, if agent is waiting"
           }
         },
         "type": "object",
@@ -1538,6 +1632,11 @@
             }
           ],
           "final_summary": "Successfully completed all tasks",
+          "human_input_request": {
+            "context": "I found a 2GB file that matches your search criteria",
+            "question": "Would you like me to download this large file?",
+            "timestamp": "2023-01-01T12:05:00Z"
+          },
           "is_running": true,
           "query": "Find and download information about Windows",
           "step_count": 5,
@@ -2016,24 +2115,6 @@
       },
       "PackageInstallResponse": {
         "properties": {
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the operation",
-            "example": "success"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message",
-            "description": "Human-readable status message",
-            "example": "Operation completed successfully"
-          },
-          "state": {
-            "type": "string",
-            "title": "State",
-            "description": "State of the instance (running, pending, hibernated, terminated)",
-            "example": "running"
-          },
           "command_id": {
             "anyOf": [
               {
@@ -2048,11 +2129,6 @@
           }
         },
         "type": "object",
-        "required": [
-          "status",
-          "message",
-          "state"
-        ],
         "title": "PackageInstallResponse",
         "example": {
           "status": "<string>"
