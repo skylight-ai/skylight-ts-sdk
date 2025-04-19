@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.15"
+    "version": "1.0.18"
   },
   "paths": {
     "/windows/start": {
@@ -51,7 +51,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -123,7 +123,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -191,7 +191,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -259,7 +259,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -327,7 +327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -379,7 +379,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/windows_models__ErrorResponse"
                 }
               }
             }
@@ -448,22 +448,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to perform click",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -536,22 +526,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to perform drag",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -614,22 +594,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to take screenshot",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -702,22 +672,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to move mouse",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -785,7 +745,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -800,22 +760,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to press keys",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -888,22 +838,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to type text",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -976,126 +916,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Failed to scroll",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/interact/file/{instance_id}": {
-      "post": {
-        "tags": [
-          "Interact"
-        ],
-        "summary": "Get File",
-        "description": "Get a secure download link for a file on the instance\n\nGenerates a presigned S3 URL for the client to download the file directly\n\nRequires API key authentication.",
-        "operationId": "get_file",
-        "security": [
-          {
-            "apikey": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "instance_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Instance Id"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                },
-                "title": "Request"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Presigned URL to download the file",
-            "content": {
-              "application/json": {
-                "schema": {},
-                "example": {
-                  "download_url": "https://s3.amazonaws.com/bucket/file?token=...",
-                  "expires_in": 3600
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid or missing file path",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Invalid/missing API key or insufficient credit balance",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Instance not found or file not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Failed to get file",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1168,22 +994,12 @@
               }
             }
           },
-          "404": {
-            "description": "Instance not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Internal server error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1251,7 +1067,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1309,7 +1125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1319,7 +1135,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1391,7 +1207,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1401,7 +1217,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1459,7 +1275,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1469,7 +1285,177 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/windows/files/upload/{instance_id}": {
+      "post": {
+        "tags": [
+          "Files"
+        ],
+        "summary": "Upload To Vm",
+        "description": "Upload a file from S3 to the VM\n\nTakes an S3 URL (often from FileUploader component) and transfers it to the VM.\nUpdates the files.uploads array in the vm_instances table to track the file.\n\nRequires API key authentication.",
+        "operationId": "upload",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Instance Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/S3VMUploadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully to VM",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileUploadResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid/missing API key or not a paid user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to upload file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/windows/files/download/{instance_id}": {
+      "post": {
+        "tags": [
+          "Files"
+        ],
+        "summary": "Get File",
+        "description": "Get a secure download link for a file on the instance\n\nGenerates a presigned S3 URL for the client to download the file directly\n\nRequires API key authentication.",
+        "operationId": "download",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Instance Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "title": "Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Presigned URL to download the file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileDownloadResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid/missing API key or not a paid user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to get file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interact_models__ErrorResponse"
                 }
               }
             }
@@ -1717,20 +1703,6 @@
             "minimum": 1.0,
             "title": "Clicks",
             "default": 1
-          },
-          "interval": {
-            "anyOf": [
-              {
-                "type": "number",
-                "maximum": 1.0,
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Interval",
-            "default": 0.0
           }
         },
         "type": "object",
@@ -1738,7 +1710,6 @@
         "example": {
           "button": "left",
           "clicks": 1,
-          "interval": 0.0,
           "x": 100,
           "y": 200
         }
@@ -1796,21 +1767,74 @@
           "step": 5
         }
       },
-      "ErrorResponse": {
+      "FileDownloadResponse": {
         "properties": {
-          "detail": {
+          "status": {
             "type": "string",
-            "title": "Detail",
-            "description": "Error message describing what went wrong"
+            "title": "Status",
+            "description": "Status of the operation",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable status message",
+            "example": "File download URL generated successfully"
+          },
+          "download_url": {
+            "type": "string",
+            "title": "Download Url",
+            "description": "Presigned URL to download the file",
+            "example": "https://s3.amazonaws.com/bucket/file?token=..."
           }
         },
         "type": "object",
         "required": [
-          "detail"
+          "status",
+          "message",
+          "download_url"
         ],
-        "title": "ErrorResponse",
+        "title": "FileDownloadResponse",
+        "description": "Response containing a presigned URL to download a file",
         "example": {
-          "detail": "<string>"
+          "download_url": "https://s3.amazonaws.com/bucket/file?token=...",
+          "message": "File download URL generated successfully",
+          "status": "success"
+        }
+      },
+      "FileUploadResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Status of the operation",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable status message",
+            "example": "File uploaded successfully"
+          },
+          "file_path": {
+            "type": "string",
+            "title": "File Path",
+            "description": "Path where the file was saved on the VM",
+            "example": "C:\\Users\\Public\\Downloads\\file.pdf"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "message",
+          "file_path"
+        ],
+        "title": "FileUploadResponse",
+        "description": "Response when a file is successfully uploaded to a VM",
+        "example": {
+          "file_path": "C:\\Users\\Public\\Downloads\\file.pdf",
+          "message": "File uploaded successfully",
+          "status": "success"
         }
       },
       "ForbiddenErrorResponse": {
@@ -1996,6 +2020,36 @@
             "title": "Assigned At",
             "description": "When the instance was assigned",
             "example": "2023-01-01T12:00:00Z"
+          },
+          "files": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Files",
+            "description": "Files on the instance organized by type (downloads, uploads)",
+            "example": {
+              "downloads": [
+                {
+                  "download_url": "https://example.com/download/file.pdf",
+                  "file_path": "C:\\Users\\Administrator\\Downloads\\file.pdf",
+                  "name": "file.pdf",
+                  "timestamp": "2023-01-01T12:00:00Z"
+                }
+              ],
+              "uploads": [
+                {
+                  "file_path": "C:\\Users\\Administrator\\Desktop\\uploaded.xlsx",
+                  "name": "uploaded.xlsx",
+                  "timestamp": "2023-01-01T12:00:00Z",
+                  "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                }
+              ]
+            }
           }
         },
         "type": "object",
@@ -2010,6 +2064,24 @@
         "title": "InstanceStatusResponse",
         "example": {
           "assigned_at": "2023-01-01T12:00:00Z",
+          "files": {
+            "downloads": [
+              {
+                "download_url": "https://example.com/download/file.pdf",
+                "file_path": "C:\\Users\\Administrator\\Downloads\\file.pdf",
+                "name": "file.pdf",
+                "timestamp": "2023-01-01T12:00:00Z"
+              }
+            ],
+            "uploads": [
+              {
+                "file_path": "C:\\Users\\Administrator\\Desktop\\uploaded.xlsx",
+                "name": "uploaded.xlsx",
+                "timestamp": "2023-01-01T12:00:00Z",
+                "type": "application/spreadsheet"
+              }
+            ]
+          },
           "instance_id": "i-123456",
           "knowledge": "The user previously asked to perform ....",
           "livestream_url": "https://launchskylight.com/embed/i-123456",
@@ -2049,6 +2121,23 @@
               "state": "stopped"
             }
           ]
+        }
+      },
+      "Interact_models__ErrorResponse": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail",
+            "description": "Error message describing what went wrong"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorResponse",
+        "example": {
+          "detail": "<string>"
         }
       },
       "KeyRequest": {
@@ -2134,6 +2223,36 @@
           "status": "<string>"
         }
       },
+      "S3VMUploadRequest": {
+        "properties": {
+          "s3_url": {
+            "type": "string",
+            "title": "S3 Url",
+            "description": "The S3 URL of the file to upload"
+          },
+          "file_name": {
+            "type": "string",
+            "title": "File Name",
+            "description": "Original name of the file"
+          },
+          "file_type": {
+            "type": "string",
+            "title": "File Type",
+            "description": "MIME type of the file"
+          },
+          "target_path": {
+            "type": "string",
+            "title": "Target Path",
+            "description": "Target path on the VM (defaults to Users/Administrator/Desktop/{file_name})"
+          }
+        },
+        "type": "object",
+        "required": [
+          "s3_url",
+          "file_name"
+        ],
+        "title": "S3VMUploadRequest"
+      },
       "ScreenshotResponse": {
         "properties": {
           "image": {
@@ -2200,24 +2319,6 @@
           "step": 20,
           "x": 100,
           "y": 200
-        }
-      },
-      "ServerErrorResponse": {
-        "properties": {
-          "detail": {
-            "type": "string",
-            "title": "Detail",
-            "description": "Detailed error message from the server"
-          }
-        },
-        "type": "object",
-        "required": [
-          "detail"
-        ],
-        "title": "ServerErrorResponse",
-        "description": "Returned when an unexpected server-side error occurs",
-        "example": {
-          "detail": "An internal server error occurred while processing your request"
         }
       },
       "StandardResponse": {
@@ -2308,6 +2409,24 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "windows_models__ErrorResponse": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail",
+            "description": "Error message describing what went wrong"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorResponse",
+        "description": "Standard error response containing details about the error",
+        "example": {
+          "detail": "The requested operation could not be completed due to a validation error"
+        }
       }
     },
     "securitySchemes": {
