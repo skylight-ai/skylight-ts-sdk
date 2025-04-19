@@ -5,18 +5,11 @@
 ```typescript
 import { PackageInstallResponse } from "skylight-sdk/models/components";
 
-let value: PackageInstallResponse = {
-  status: "<string>",
-  message: "Operation completed successfully",
-  state: "running",
-};
+let value: PackageInstallResponse = {};
 ```
 
 ## Fields
 
-| Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `status`                                                         | *string*                                                         | :heavy_check_mark:                                               | Status of the operation                                          | success                                                          |
-| `message`                                                        | *string*                                                         | :heavy_check_mark:                                               | Human-readable status message                                    | Operation completed successfully                                 |
-| `state`                                                          | *string*                                                         | :heavy_check_mark:                                               | State of the instance (running, pending, hibernated, terminated) | running                                                          |
-| `commandId`                                                      | *string*                                                         | :heavy_minus_sign:                                               | Command ID for tracking installation progress                    |                                                                  |
+| Field                                         | Type                                          | Required                                      | Description                                   |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| `commandId`                                   | *string*                                      | :heavy_minus_sign:                            | Command ID for tracking installation progress |

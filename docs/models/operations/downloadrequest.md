@@ -1,11 +1,11 @@
-# GetFileRequest
+# DownloadRequest
 
 ## Example Usage
 
 ```typescript
-import { GetFileRequest } from "skylight-sdk/models/operations";
+import { DownloadRequest } from "skylight-sdk/models/operations";
 
-let value: GetFileRequest = {
+let value: DownloadRequest = {
   instanceId: "<id>",
   requestBody: {
     "key": "<value>",

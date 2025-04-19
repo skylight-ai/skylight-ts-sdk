@@ -4,7 +4,6 @@
 
 import { interactClick } from "../funcs/interactClick.js";
 import { interactDrag } from "../funcs/interactDrag.js";
-import { interactGetFile } from "../funcs/interactGetFile.js";
 import { interactInstall } from "../funcs/interactInstall.js";
 import { interactKeypress } from "../funcs/interactKeypress.js";
 import { interactMove } from "../funcs/interactMove.js";
@@ -167,29 +166,6 @@ export class Interact extends ClientSDK {
       this,
       instanceId,
       scrollRequest,
-      options,
-    ));
-  }
-
-  /**
-   * Get File
-   *
-   * @remarks
-   * Get a secure download link for a file on the instance
-   *
-   * Generates a presigned S3 URL for the client to download the file directly
-   *
-   * Requires API key authentication.
-   */
-  async getFile(
-    instanceId: string,
-    requestBody: { [k: string]: string },
-    options?: RequestOptions,
-  ): Promise<any> {
-    return unwrapAsync(interactGetFile(
-      this,
-      instanceId,
-      requestBody,
       options,
     ));
   }

@@ -8,7 +8,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Files = {};
+export type AgentStatusResponseFiles = {};
+
+export type HumanInputRequest = {};
 
 export type AgentStatusResponse = {
   /**
@@ -30,7 +32,7 @@ export type AgentStatusResponse = {
   /**
    * List of files downloaded by the agent
    */
-  files: Array<Files>;
+  files: Array<AgentStatusResponseFiles>;
   /**
    * List of steps executed by the agent
    */
@@ -47,46 +49,105 @@ export type AgentStatusResponse = {
    * Unique identifier for the agent
    */
   agentId: string;
+  /**
+   * Information about the human input being requested, if agent is waiting
+   */
+  humanInputRequest?: HumanInputRequest | null | undefined;
 };
 
 /** @internal */
-export const Files$inboundSchema: z.ZodType<Files, z.ZodTypeDef, unknown> = z
-  .object({});
-
-/** @internal */
-export type Files$Outbound = {};
-
-/** @internal */
-export const Files$outboundSchema: z.ZodType<
-  Files$Outbound,
+export const AgentStatusResponseFiles$inboundSchema: z.ZodType<
+  AgentStatusResponseFiles,
   z.ZodTypeDef,
-  Files
+  unknown
+> = z.object({});
+
+/** @internal */
+export type AgentStatusResponseFiles$Outbound = {};
+
+/** @internal */
+export const AgentStatusResponseFiles$outboundSchema: z.ZodType<
+  AgentStatusResponseFiles$Outbound,
+  z.ZodTypeDef,
+  AgentStatusResponseFiles
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Files$ {
-  /** @deprecated use `Files$inboundSchema` instead. */
-  export const inboundSchema = Files$inboundSchema;
-  /** @deprecated use `Files$outboundSchema` instead. */
-  export const outboundSchema = Files$outboundSchema;
-  /** @deprecated use `Files$Outbound` instead. */
-  export type Outbound = Files$Outbound;
+export namespace AgentStatusResponseFiles$ {
+  /** @deprecated use `AgentStatusResponseFiles$inboundSchema` instead. */
+  export const inboundSchema = AgentStatusResponseFiles$inboundSchema;
+  /** @deprecated use `AgentStatusResponseFiles$outboundSchema` instead. */
+  export const outboundSchema = AgentStatusResponseFiles$outboundSchema;
+  /** @deprecated use `AgentStatusResponseFiles$Outbound` instead. */
+  export type Outbound = AgentStatusResponseFiles$Outbound;
 }
 
-export function filesToJSON(files: Files): string {
-  return JSON.stringify(Files$outboundSchema.parse(files));
+export function agentStatusResponseFilesToJSON(
+  agentStatusResponseFiles: AgentStatusResponseFiles,
+): string {
+  return JSON.stringify(
+    AgentStatusResponseFiles$outboundSchema.parse(agentStatusResponseFiles),
+  );
 }
 
-export function filesFromJSON(
+export function agentStatusResponseFilesFromJSON(
   jsonString: string,
-): SafeParseResult<Files, SDKValidationError> {
+): SafeParseResult<AgentStatusResponseFiles, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Files$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Files' from JSON`,
+    (x) => AgentStatusResponseFiles$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AgentStatusResponseFiles' from JSON`,
+  );
+}
+
+/** @internal */
+export const HumanInputRequest$inboundSchema: z.ZodType<
+  HumanInputRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type HumanInputRequest$Outbound = {};
+
+/** @internal */
+export const HumanInputRequest$outboundSchema: z.ZodType<
+  HumanInputRequest$Outbound,
+  z.ZodTypeDef,
+  HumanInputRequest
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace HumanInputRequest$ {
+  /** @deprecated use `HumanInputRequest$inboundSchema` instead. */
+  export const inboundSchema = HumanInputRequest$inboundSchema;
+  /** @deprecated use `HumanInputRequest$outboundSchema` instead. */
+  export const outboundSchema = HumanInputRequest$outboundSchema;
+  /** @deprecated use `HumanInputRequest$Outbound` instead. */
+  export type Outbound = HumanInputRequest$Outbound;
+}
+
+export function humanInputRequestToJSON(
+  humanInputRequest: HumanInputRequest,
+): string {
+  return JSON.stringify(
+    HumanInputRequest$outboundSchema.parse(humanInputRequest),
+  );
+}
+
+export function humanInputRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<HumanInputRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => HumanInputRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'HumanInputRequest' from JSON`,
   );
 }
 
@@ -100,11 +161,13 @@ export const AgentStatusResponse$inboundSchema: z.ZodType<
   is_running: z.boolean(),
   total_steps: z.number().int(),
   final_summary: z.nullable(z.string()).optional(),
-  files: z.array(z.lazy(() => Files$inboundSchema)),
+  files: z.array(z.lazy(() => AgentStatusResponseFiles$inboundSchema)),
   messages: z.array(z.string()),
   created_at: z.string(),
   query: z.string(),
   agent_id: z.string(),
+  human_input_request: z.nullable(z.lazy(() => HumanInputRequest$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "agent_status": "agentStatus",
@@ -113,6 +176,7 @@ export const AgentStatusResponse$inboundSchema: z.ZodType<
     "final_summary": "finalSummary",
     "created_at": "createdAt",
     "agent_id": "agentId",
+    "human_input_request": "humanInputRequest",
   });
 });
 
@@ -122,11 +186,12 @@ export type AgentStatusResponse$Outbound = {
   is_running: boolean;
   total_steps: number;
   final_summary?: string | null | undefined;
-  files: Array<Files$Outbound>;
+  files: Array<AgentStatusResponseFiles$Outbound>;
   messages: Array<string>;
   created_at: string;
   query: string;
   agent_id: string;
+  human_input_request?: HumanInputRequest$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -139,11 +204,13 @@ export const AgentStatusResponse$outboundSchema: z.ZodType<
   isRunning: z.boolean(),
   totalSteps: z.number().int(),
   finalSummary: z.nullable(z.string()).optional(),
-  files: z.array(z.lazy(() => Files$outboundSchema)),
+  files: z.array(z.lazy(() => AgentStatusResponseFiles$outboundSchema)),
   messages: z.array(z.string()),
   createdAt: z.string(),
   query: z.string(),
   agentId: z.string(),
+  humanInputRequest: z.nullable(z.lazy(() => HumanInputRequest$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     agentStatus: "agent_status",
@@ -152,6 +219,7 @@ export const AgentStatusResponse$outboundSchema: z.ZodType<
     finalSummary: "final_summary",
     createdAt: "created_at",
     agentId: "agent_id",
+    humanInputRequest: "human_input_request",
   });
 });
 

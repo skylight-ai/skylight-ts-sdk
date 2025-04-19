@@ -4,6 +4,7 @@
 
 import { ClientSDK } from "../lib/sdks.js";
 import { Agent } from "./agent.js";
+import { Files } from "./files.js";
 import { Interact } from "./interact.js";
 import { Windows } from "./windows.js";
 
@@ -21,5 +22,10 @@ export class Skylight extends ClientSDK {
   private _agent?: Agent;
   get agent(): Agent {
     return (this._agent ??= new Agent(this._options));
+  }
+
+  private _files?: Files;
+  get files(): Files {
+    return (this._files ??= new Files(this._options));
   }
 }

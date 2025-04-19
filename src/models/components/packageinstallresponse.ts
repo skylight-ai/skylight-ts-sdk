@@ -10,18 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type PackageInstallResponse = {
   /**
-   * Status of the operation
-   */
-  status: string;
-  /**
-   * Human-readable status message
-   */
-  message: string;
-  /**
-   * State of the instance (running, pending, hibernated, terminated)
-   */
-  state: string;
-  /**
    * Command ID for tracking installation progress
    */
   commandId?: string | null | undefined;
@@ -33,9 +21,6 @@ export const PackageInstallResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status: z.string(),
-  message: z.string(),
-  state: z.string(),
   command_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -45,9 +30,6 @@ export const PackageInstallResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PackageInstallResponse$Outbound = {
-  status: string;
-  message: string;
-  state: string;
   command_id?: string | null | undefined;
 };
 
@@ -57,9 +39,6 @@ export const PackageInstallResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PackageInstallResponse
 > = z.object({
-  status: z.string(),
-  message: z.string(),
-  state: z.string(),
   commandId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

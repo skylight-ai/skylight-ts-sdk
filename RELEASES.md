@@ -39,3 +39,13 @@ Based on:
 - [typescript v0.1.2] .
 ### Releases
 - [NPM v0.1.2] https://www.npmjs.com/package/skylight-sdk/v/0.1.2 - .
+
+## 2025-04-19 06:39:12
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.535.1 (2.585.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.3] .
+### Releases
+- [NPM v0.1.3] https://www.npmjs.com/package/skylight-sdk/v/0.1.3 - .

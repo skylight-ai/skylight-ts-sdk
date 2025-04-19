@@ -40,9 +40,9 @@ export function agentStatus(
 ): APIPromise<
   Result<
     components.AgentStatusResponse,
-    | errors.ErrorResponse
+    | errors.InteractModelsErrorResponse
     | errors.HTTPValidationError
-    | errors.ErrorResponse
+    | errors.InteractModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -67,9 +67,9 @@ async function $do(
   [
     Result<
       components.AgentStatusResponse,
-      | errors.ErrorResponse
+      | errors.InteractModelsErrorResponse
       | errors.HTTPValidationError
-      | errors.ErrorResponse
+      | errors.InteractModelsErrorResponse
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -158,9 +158,9 @@ async function $do(
 
   const [result] = await M.match<
     components.AgentStatusResponse,
-    | errors.ErrorResponse
+    | errors.InteractModelsErrorResponse
     | errors.HTTPValidationError
-    | errors.ErrorResponse
+    | errors.InteractModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -170,9 +170,9 @@ async function $do(
     | ConnectionError
   >(
     M.json(200, components.AgentStatusResponse$inboundSchema),
-    M.jsonErr(404, errors.ErrorResponse$inboundSchema),
+    M.jsonErr(404, errors.InteractModelsErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    M.jsonErr(500, errors.ErrorResponse$inboundSchema),
+    M.jsonErr(500, errors.InteractModelsErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

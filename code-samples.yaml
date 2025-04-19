@@ -3,6 +3,12 @@ info:
   title: CodeSamples overlay for typescript target
   version: 0.0.0
 actions:
+  - target: $["paths"]["/agent/answer/{agent_id}"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.agent.answer(\"<id>\", {});\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/agent/run/{instance_id}"]["post"]
     update:
       "x-codeSamples":
@@ -26,19 +32,13 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.click(\"<id>\", {\n    x: 100,\n    y: 200,\n    interval: 0,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.click(\"<id>\", {\n    x: 100,\n    y: 200,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/drag/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.drag(\"<id>\", {\n    path: [\n      {\n        \"x\": 100,\n        \"y\": 200,\n      },\n    ],\n    step: 5,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/interact/file/{instance_id}"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "typescript"
-          "label": "Typescript (SDK)"
-          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.getFile(\"<id>\", {\n    \"key\": \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/interact/install/{instance_id}"]["post"]
     update:
       "x-codeSamples":
@@ -75,6 +75,18 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.interact.type(\"<id>\", {\n    text: \"Hello, world!\",\n    interval: 0.05,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/windows/files/download/{instance_id}"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.files.download(\"<id>\", {\n    \"key\": \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/windows/files/upload/{instance_id}"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Skylight } from \"skylight-sdk\";\n\nconst skylight = new Skylight({\n  apikey: process.env[\"SKYLIGHT_APIKEY\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await skylight.files.upload(\"<id>\", {\n    s3Url: \"https://needy-mallard.info/\",\n    fileName: \"example.file\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/windows/instances"]["get"]
     update:
       "x-codeSamples":
