@@ -40,7 +40,7 @@ export function windowsState(
     components.InstanceStatusResponse,
     | errors.ForbiddenErrorResponse
     | errors.HTTPValidationError
-    | errors.ServerErrorResponse
+    | errors.WindowsModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -67,7 +67,7 @@ async function $do(
       components.InstanceStatusResponse,
       | errors.ForbiddenErrorResponse
       | errors.HTTPValidationError
-      | errors.ServerErrorResponse
+      | errors.WindowsModelsErrorResponse
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -158,7 +158,7 @@ async function $do(
     components.InstanceStatusResponse,
     | errors.ForbiddenErrorResponse
     | errors.HTTPValidationError
-    | errors.ServerErrorResponse
+    | errors.WindowsModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -170,7 +170,7 @@ async function $do(
     M.json(200, components.InstanceStatusResponse$inboundSchema),
     M.jsonErr(403, errors.ForbiddenErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    M.jsonErr(500, errors.ServerErrorResponse$inboundSchema),
+    M.jsonErr(500, errors.WindowsModelsErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

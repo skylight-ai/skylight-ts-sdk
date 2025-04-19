@@ -3,9 +3,9 @@
  */
 
 export * from "./apierror.js";
-export * from "./errorresponse.js";
 export * from "./forbiddenerrorresponse.js";
 export * from "./httpclienterrors.js";
 export * from "./httpvalidationerror.js";
+export * from "./interactmodelserrorresponse.js";
 export * from "./sdkvalidationerror.js";
-export * from "./servererrorresponse.js";
+export * from "./windowsmodelserrorresponse.js";

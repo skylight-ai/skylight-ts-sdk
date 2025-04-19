@@ -240,7 +240,13 @@ run();
 
 * [run](docs/sdks/agent/README.md#run) - Run Agent
 * [stop](docs/sdks/agent/README.md#stop) - Stop Agent
+* [answer](docs/sdks/agent/README.md#answer) - Respond To Agent
 * [status](docs/sdks/agent/README.md#status) - Get Agent State
+
+### [files](docs/sdks/files/README.md)
+
+* [upload](docs/sdks/files/README.md#upload) - Upload To Vm
+* [download](docs/sdks/files/README.md#download) - Get File
 
 ### [interact](docs/sdks/interact/README.md)
 
@@ -251,7 +257,6 @@ run();
 * [keypress](docs/sdks/interact/README.md#keypress) - Keypress
 * [type](docs/sdks/interact/README.md#type) - Type Text
 * [scroll](docs/sdks/interact/README.md#scroll) - Scroll
-* [getFile](docs/sdks/interact/README.md#getfile) - Get File
 * [install](docs/sdks/interact/README.md#install) - Install Applications
 
 
@@ -282,12 +287,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`agentAnswer`](docs/sdks/agent/README.md#answer) - Respond To Agent
 - [`agentRun`](docs/sdks/agent/README.md#run) - Run Agent
 - [`agentStatus`](docs/sdks/agent/README.md#status) - Get Agent State
 - [`agentStop`](docs/sdks/agent/README.md#stop) - Stop Agent
+- [`filesDownload`](docs/sdks/files/README.md#download) - Get File
+- [`filesUpload`](docs/sdks/files/README.md#upload) - Upload To Vm
 - [`interactClick`](docs/sdks/interact/README.md#click) - Click
 - [`interactDrag`](docs/sdks/interact/README.md#drag) - Drag
-- [`interactGetFile`](docs/sdks/interact/README.md#getfile) - Get File
 - [`interactInstall`](docs/sdks/interact/README.md#install) - Install Applications
 - [`interactKeypress`](docs/sdks/interact/README.md#keypress) - Keypress
 - [`interactMove`](docs/sdks/interact/README.md#move) - Move Mouse
@@ -374,12 +381,12 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `start` method may throw the following errors:
 
-| Error Type                    | Status Code | Content Type     |
-| ----------------------------- | ----------- | ---------------- |
-| errors.ForbiddenErrorResponse | 403         | application/json |
-| errors.HTTPValidationError    | 422         | application/json |
-| errors.ServerErrorResponse    | 500         | application/json |
-| errors.APIError               | 4XX, 5XX    | \*/\*            |
+| Error Type                        | Status Code | Content Type     |
+| --------------------------------- | ----------- | ---------------- |
+| errors.ForbiddenErrorResponse     | 403         | application/json |
+| errors.HTTPValidationError        | 422         | application/json |
+| errors.WindowsModelsErrorResponse | 500         | application/json |
+| errors.APIError                   | 4XX, 5XX    | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
@@ -389,7 +396,7 @@ import {
   ForbiddenErrorResponse,
   HTTPValidationError,
   SDKValidationError,
-  ServerErrorResponse,
+  WindowsModelsErrorResponse,
 } from "skylight-sdk/models/errors";
 
 const skylight = new Skylight({
@@ -423,8 +430,8 @@ async function run() {
         console.error(err);
         return;
       }
-      case (err instanceof ServerErrorResponse): {
-        // Handle err.data$: ServerErrorResponseData
+      case (err instanceof WindowsModelsErrorResponse): {
+        // Handle err.data$: WindowsModelsErrorResponseData
         console.error(err);
         return;
       }

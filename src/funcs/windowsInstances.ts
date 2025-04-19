@@ -35,7 +35,7 @@ export function windowsInstances(
   Result<
     components.InstancesListResponse,
     | errors.ForbiddenErrorResponse
-    | errors.ServerErrorResponse
+    | errors.WindowsModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -59,7 +59,7 @@ async function $do(
     Result<
       components.InstancesListResponse,
       | errors.ForbiddenErrorResponse
-      | errors.ServerErrorResponse
+      | errors.WindowsModelsErrorResponse
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -126,7 +126,7 @@ async function $do(
   const [result] = await M.match<
     components.InstancesListResponse,
     | errors.ForbiddenErrorResponse
-    | errors.ServerErrorResponse
+    | errors.WindowsModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -137,7 +137,7 @@ async function $do(
   >(
     M.json(200, components.InstancesListResponse$inboundSchema),
     M.jsonErr(403, errors.ForbiddenErrorResponse$inboundSchema),
-    M.jsonErr(500, errors.ServerErrorResponse$inboundSchema),
+    M.jsonErr(500, errors.WindowsModelsErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

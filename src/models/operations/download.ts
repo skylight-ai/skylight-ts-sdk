@@ -8,14 +8,14 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type GetFileRequest = {
+export type DownloadRequest = {
   instanceId: string;
   requestBody: { [k: string]: string };
 };
 
 /** @internal */
-export const GetFileRequest$inboundSchema: z.ZodType<
-  GetFileRequest,
+export const DownloadRequest$inboundSchema: z.ZodType<
+  DownloadRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -29,16 +29,16 @@ export const GetFileRequest$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetFileRequest$Outbound = {
+export type DownloadRequest$Outbound = {
   instance_id: string;
   RequestBody: { [k: string]: string };
 };
 
 /** @internal */
-export const GetFileRequest$outboundSchema: z.ZodType<
-  GetFileRequest$Outbound,
+export const DownloadRequest$outboundSchema: z.ZodType<
+  DownloadRequest$Outbound,
   z.ZodTypeDef,
-  GetFileRequest
+  DownloadRequest
 > = z.object({
   instanceId: z.string(),
   requestBody: z.record(z.string()),
@@ -53,25 +53,27 @@ export const GetFileRequest$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetFileRequest$ {
-  /** @deprecated use `GetFileRequest$inboundSchema` instead. */
-  export const inboundSchema = GetFileRequest$inboundSchema;
-  /** @deprecated use `GetFileRequest$outboundSchema` instead. */
-  export const outboundSchema = GetFileRequest$outboundSchema;
-  /** @deprecated use `GetFileRequest$Outbound` instead. */
-  export type Outbound = GetFileRequest$Outbound;
+export namespace DownloadRequest$ {
+  /** @deprecated use `DownloadRequest$inboundSchema` instead. */
+  export const inboundSchema = DownloadRequest$inboundSchema;
+  /** @deprecated use `DownloadRequest$outboundSchema` instead. */
+  export const outboundSchema = DownloadRequest$outboundSchema;
+  /** @deprecated use `DownloadRequest$Outbound` instead. */
+  export type Outbound = DownloadRequest$Outbound;
 }
 
-export function getFileRequestToJSON(getFileRequest: GetFileRequest): string {
-  return JSON.stringify(GetFileRequest$outboundSchema.parse(getFileRequest));
+export function downloadRequestToJSON(
+  downloadRequest: DownloadRequest,
+): string {
+  return JSON.stringify(DownloadRequest$outboundSchema.parse(downloadRequest));
 }
 
-export function getFileRequestFromJSON(
+export function downloadRequestFromJSON(
   jsonString: string,
-): SafeParseResult<GetFileRequest, SDKValidationError> {
+): SafeParseResult<DownloadRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetFileRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetFileRequest' from JSON`,
+    (x) => DownloadRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadRequest' from JSON`,
   );
 }

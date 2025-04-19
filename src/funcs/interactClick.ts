@@ -49,9 +49,8 @@ export function interactClick(
   Result<
     components.StandardResponse,
     | errors.ForbiddenErrorResponse
-    | errors.ErrorResponse
     | errors.HTTPValidationError
-    | errors.ServerErrorResponse
+    | errors.InteractModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -79,9 +78,8 @@ async function $do(
     Result<
       components.StandardResponse,
       | errors.ForbiddenErrorResponse
-      | errors.ErrorResponse
       | errors.HTTPValidationError
-      | errors.ServerErrorResponse
+      | errors.InteractModelsErrorResponse
       | APIError
       | SDKValidationError
       | UnexpectedClientError
@@ -157,7 +155,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "404", "422", "4XX", "500", "5XX"],
+    errorCodes: ["403", "422", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -173,9 +171,8 @@ async function $do(
   const [result] = await M.match<
     components.StandardResponse,
     | errors.ForbiddenErrorResponse
-    | errors.ErrorResponse
     | errors.HTTPValidationError
-    | errors.ServerErrorResponse
+    | errors.InteractModelsErrorResponse
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -186,9 +183,8 @@ async function $do(
   >(
     M.json(200, components.StandardResponse$inboundSchema),
     M.jsonErr(403, errors.ForbiddenErrorResponse$inboundSchema),
-    M.jsonErr(404, errors.ErrorResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    M.jsonErr(500, errors.ServerErrorResponse$inboundSchema),
+    M.jsonErr(500, errors.InteractModelsErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

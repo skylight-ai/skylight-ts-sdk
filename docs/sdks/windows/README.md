@@ -84,12 +84,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.HTTPValidationError    | 422                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## pause
 
@@ -159,12 +159,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.HTTPValidationError    | 422                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## resume
 
@@ -234,12 +234,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.HTTPValidationError    | 422                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## terminate
 
@@ -309,12 +309,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.HTTPValidationError    | 422                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## state
 
@@ -384,12 +384,12 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.HTTPValidationError    | 422                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.HTTPValidationError        | 422                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## instances
 
@@ -458,8 +458,8 @@ run();
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ForbiddenErrorResponse | 403                           | application/json              |
-| errors.ServerErrorResponse    | 500                           | application/json              |
-| errors.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ForbiddenErrorResponse     | 403                               | application/json                  |
+| errors.WindowsModelsErrorResponse | 500                               | application/json                  |
+| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |

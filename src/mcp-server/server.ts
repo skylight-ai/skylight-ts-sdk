@@ -13,12 +13,14 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
+import { tool$agentAnswer } from "./tools/agentAnswer.js";
 import { tool$agentRun } from "./tools/agentRun.js";
 import { tool$agentStatus } from "./tools/agentStatus.js";
 import { tool$agentStop } from "./tools/agentStop.js";
+import { tool$filesDownload } from "./tools/filesDownload.js";
+import { tool$filesUpload } from "./tools/filesUpload.js";
 import { tool$interactClick } from "./tools/interactClick.js";
 import { tool$interactDrag } from "./tools/interactDrag.js";
-import { tool$interactGetFile } from "./tools/interactGetFile.js";
 import { tool$interactInstall } from "./tools/interactInstall.js";
 import { tool$interactKeypress } from "./tools/interactKeypress.js";
 import { tool$interactMove } from "./tools/interactMove.js";
@@ -42,7 +44,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Skylight",
-    version: "0.1.2",
+    version: "0.1.3",
   });
 
   const client = new SkylightCore({
@@ -85,11 +87,13 @@ export function createMCPServer(deps: {
   tool(tool$interactKeypress);
   tool(tool$interactType);
   tool(tool$interactScroll);
-  tool(tool$interactGetFile);
   tool(tool$interactInstall);
   tool(tool$agentRun);
   tool(tool$agentStop);
+  tool(tool$agentAnswer);
   tool(tool$agentStatus);
+  tool(tool$filesUpload);
+  tool(tool$filesDownload);
 
   return server;
 }

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod";
-import { interactGetFile } from "../../funcs/interactGetFile.js";
+import { filesDownload } from "../../funcs/filesDownload.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
@@ -11,8 +11,8 @@ const args = {
   requestBody: z.record(z.string()),
 };
 
-export const tool$interactGetFile: ToolDefinition<typeof args> = {
-  name: "interact-get-file",
+export const tool$filesDownload: ToolDefinition<typeof args> = {
+  name: "files-download",
   description: `Get File
 
 Get a secure download link for a file on the instance
@@ -22,7 +22,7 @@ Generates a presigned S3 URL for the client to download the file directly
 Requires API key authentication.`,
   args,
   tool: async (client, args, ctx) => {
-    const [result, apiCall] = await interactGetFile(
+    const [result, apiCall] = await filesDownload(
       client,
       args.instanceId,
       args.requestBody,

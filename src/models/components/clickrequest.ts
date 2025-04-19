@@ -20,7 +20,6 @@ export type ClickRequest = {
   y?: number | null | undefined;
   button?: Button | undefined;
   clicks?: number | undefined;
-  interval?: number | null | undefined;
 };
 
 /** @internal */
@@ -52,7 +51,6 @@ export const ClickRequest$inboundSchema: z.ZodType<
   y: z.nullable(z.number().int()).optional(),
   button: Button$inboundSchema.default("left"),
   clicks: z.number().int().default(1),
-  interval: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
@@ -61,7 +59,6 @@ export type ClickRequest$Outbound = {
   y?: number | null | undefined;
   button: string;
   clicks: number;
-  interval?: number | null | undefined;
 };
 
 /** @internal */
@@ -74,7 +71,6 @@ export const ClickRequest$outboundSchema: z.ZodType<
   y: z.nullable(z.number().int()).optional(),
   button: Button$outboundSchema.default("left"),
   clicks: z.number().int().default(1),
-  interval: z.nullable(z.number()).optional(),
 });
 
 /**

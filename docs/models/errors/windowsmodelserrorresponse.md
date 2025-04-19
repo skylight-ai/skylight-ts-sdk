@@ -1,9 +1,11 @@
-# ErrorResponse
+# WindowsModelsErrorResponse
+
+Standard error response containing details about the error
 
 ## Example Usage
 
 ```typescript
-import { ErrorResponse } from "skylight-sdk/models/errors";
+import { WindowsModelsErrorResponse } from "skylight-sdk/models/errors";
 
 // No examples available for this model
 ```

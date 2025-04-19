@@ -8,6 +8,8 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type Files = {};
+
 export type InstanceStatusResponse = {
   instanceId: string;
   /**
@@ -34,7 +36,52 @@ export type InstanceStatusResponse = {
    * When the instance was assigned
    */
   assignedAt?: string | null | undefined;
+  /**
+   * Files on the instance organized by type (downloads, uploads)
+   */
+  files?: Files | null | undefined;
 };
+
+/** @internal */
+export const Files$inboundSchema: z.ZodType<Files, z.ZodTypeDef, unknown> = z
+  .object({});
+
+/** @internal */
+export type Files$Outbound = {};
+
+/** @internal */
+export const Files$outboundSchema: z.ZodType<
+  Files$Outbound,
+  z.ZodTypeDef,
+  Files
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Files$ {
+  /** @deprecated use `Files$inboundSchema` instead. */
+  export const inboundSchema = Files$inboundSchema;
+  /** @deprecated use `Files$outboundSchema` instead. */
+  export const outboundSchema = Files$outboundSchema;
+  /** @deprecated use `Files$Outbound` instead. */
+  export type Outbound = Files$Outbound;
+}
+
+export function filesToJSON(files: Files): string {
+  return JSON.stringify(Files$outboundSchema.parse(files));
+}
+
+export function filesFromJSON(
+  jsonString: string,
+): SafeParseResult<Files, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Files$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Files' from JSON`,
+  );
+}
 
 /** @internal */
 export const InstanceStatusResponse$inboundSchema: z.ZodType<
@@ -49,6 +96,7 @@ export const InstanceStatusResponse$inboundSchema: z.ZodType<
   knowledge: z.string(),
   livestream_url: z.string(),
   assigned_at: z.nullable(z.string()).optional(),
+  files: z.nullable(z.lazy(() => Files$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "instance_id": "instanceId",
@@ -67,6 +115,7 @@ export type InstanceStatusResponse$Outbound = {
   knowledge: string;
   livestream_url: string;
   assigned_at?: string | null | undefined;
+  files?: Files$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -82,6 +131,7 @@ export const InstanceStatusResponse$outboundSchema: z.ZodType<
   knowledge: z.string(),
   livestreamUrl: z.string(),
   assignedAt: z.nullable(z.string()).optional(),
+  files: z.nullable(z.lazy(() => Files$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     instanceId: "instance_id",
